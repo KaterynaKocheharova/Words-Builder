@@ -1,27 +1,27 @@
 @font-face {
   font-family: "MacPaw Fixel Display";
-  src: url("./fonts/._FixelDisplay-Regular.woff2") format("woff2");
+  src: url("./fonts/MacPawFixelDisplay-Regular.otf") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "MacPaw Fixel Display";
-  src: url("./fonts/._FixelDisplay-Medium.woff2") format("woff2");
+  src: url("./fonts/MacPawFixelDisplay-Medium.otf") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "MacPaw Fixel Display";
-  src: url("./fonts/._FixelDisplay-SemiBold.woff2") format("woff2");
+  src: url("./fonts/MacPawFixelDisplay-SemiBold.otf") format("woff2");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "MacPaw Fixel Display";
-  src: url("./fonts/._FixelDisplay-Bold.woff2") format("woff2");
+  src: url("./fonts/MacPawFixelDisplay-Bold.otf") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
