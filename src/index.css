@@ -34,6 +34,11 @@
   --white: #fcfcfc;
 }
 
+body {
+  font-family: "MacPaw Fixel Display", sans-serif;
+  background-color: var(--gray);
+}
+
 h1,
 h2,
 h3,
@@ -64,7 +69,29 @@ a {
   color: inherit;
 }
 
-body {
-  font-family: "MacPaw Fixel Display", sans-serif;
-  background-color: var(--gray);
+button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--third-color);
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
 }
