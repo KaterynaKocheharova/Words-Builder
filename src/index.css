@@ -26,6 +26,14 @@
   font-style: normal;
 }
 
+:root {
+  --main-font-color: #121417;
+  --primary-color: #85aa9f;
+  --primary-color-hover: #a5c0b8;
+  --gray: #f8f8f8;
+  --white: #fcfcfc;
+}
+
 h1,
 h2,
 h3,
