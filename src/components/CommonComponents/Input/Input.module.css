@@ -2,6 +2,7 @@
   width: 100%;
   border-radius: 15px;
   line-height: 1.5;
+  background-color: transparent;
 }
 
 .auth-form-input {
