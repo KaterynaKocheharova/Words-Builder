@@ -1,5 +1,4 @@
-## REACT TEMPLATE
-Just a minimal template I prepared to reuse in the future.
+Will be an app to practice new English words
 
 ### DEPENDENCIES
 - React
