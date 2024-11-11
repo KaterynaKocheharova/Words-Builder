@@ -1,10 +1,12 @@
+import Container from "../components/CommonComponents/Container/Container";
+import Section from "../components/CommonComponents/Section/Section";
 
 const RegistrationPage = () => {
   return (
-    <div>
-      REGISTRATION PAGE
-    </div>
-  )
-}
+    <Section sectionClass="auth-section">
+      <Container>REGISTRATION PAGE</Container>
+    </Section>
+  );
+};
 
-export default RegistrationPage
+export default RegistrationPage;
