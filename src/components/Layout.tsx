@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import NavBar from "./HeaderComponents/NavBar";
+import NavBar from "./HeaderComponents/NavBar/NavBar";
 
 type LayoutProps = {
   children: React.ReactNode;
