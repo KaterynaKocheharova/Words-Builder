@@ -37,6 +37,7 @@
 body {
   font-family: "MacPaw Fixel Display", sans-serif;
   background-color: var(--gray);
+  color: var(--main-font-color);
 }
 
 h1,
@@ -80,7 +81,6 @@ input {
   border: none;
   outline: none;
 }
-
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

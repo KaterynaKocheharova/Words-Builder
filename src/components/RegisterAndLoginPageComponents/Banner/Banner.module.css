@@ -5,15 +5,20 @@
   align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  .image-container {
+    margin-bottom: 8px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .image-container {
     display: none;
   }
 }
 
-
 @media screen and (min-width: 1440px) {
-    .image-container {
-        width: 498px;
-    }
+  .image-container {
+    width: 498px;
+  }
 }
