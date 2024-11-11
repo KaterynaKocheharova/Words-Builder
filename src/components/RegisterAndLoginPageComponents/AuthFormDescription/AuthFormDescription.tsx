@@ -1,11 +1,11 @@
-import React from 'react'
+import css from "./AutFormDescription.module.css";
 
-const AuthFormDescription = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+type AuthFormDescriptionProps = {
+  children: React.ReactNode;
+};
 
-export default AuthFormDescription
+const AuthFormDescription = ({ children }: AuthFormDescriptionProps) => {
+  return <p className={css.description}>{children}</p>;
+};
+
+export default AuthFormDescription;
