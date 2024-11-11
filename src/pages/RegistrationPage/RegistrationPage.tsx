@@ -8,11 +8,9 @@ const RegistrationPage = () => {
   return (
     <Section sectionClass="auth-section">
       <Container>
-        <div className={css["registration-container"]}>
-          <Banner />
-          <RegisterForm />
-        </div>
+        <Banner />
       </Container>
+      <RegisterForm />
     </Section>
   );
 };
