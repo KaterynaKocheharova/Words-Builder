@@ -5,4 +5,9 @@
   width: 100%;
   border-radius: 25px;
   background-color: #85aa9f1a;
+
+  @media screen and (min-width: 768px) {
+    width: 628px;
+    padding: 48px 64px 32px 64px;
+  }
 }
