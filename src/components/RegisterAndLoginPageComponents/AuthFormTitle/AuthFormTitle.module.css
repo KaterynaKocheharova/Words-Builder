@@ -5,3 +5,15 @@
   letter-spacing: -0.02em;
   margin-bottom: 16px;
 }
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 40px;
+  }
+}
