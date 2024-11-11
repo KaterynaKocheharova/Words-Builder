@@ -2,4 +2,9 @@
   line-height: 1.5;
   color: #121417cc;
   margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
 }
