@@ -2,12 +2,12 @@ import { Navigate } from "react-router-dom";
 
 type RestrictedRouteProps = {
   component: React.ReactNode;
-  redirectTo: string;
+  // redirectTo: string;
 };
 
 const RestrictedRoute = ({
   component: Component,
-  redirectTo,
+  // redirectTo,
 }: RestrictedRouteProps) => {
   //   const isLoggedIn = useSelector(selectIsLoggedIn);
 
