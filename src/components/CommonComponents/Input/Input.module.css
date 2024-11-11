@@ -1,0 +1,11 @@
+.input {
+  width: 100%;
+  border-radius: 15px;
+  line-height: 1.5;
+}
+
+.auth-form-input {
+  padding: 16px 18px 16px 18px;
+  border: 1px solid #1214171a;
+  color: var(--main-font-color);
+}
