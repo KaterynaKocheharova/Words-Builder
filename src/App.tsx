@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import RestrictedRoute from "./components/RestrictedRoute";
 
-const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
+const RegistrationPage = lazy(() => import("./pages/RegistrationPage/RegistrationPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 
 export default function App() {
