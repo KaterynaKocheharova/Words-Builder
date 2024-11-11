@@ -1,6 +1,7 @@
 import Container from "../../components/CommonComponents/Container/Container";
 import Section from "../../components/CommonComponents/Section/Section";
 import Banner from "../../components/RegisterAndLoginPageComponents/Banner/Banner";
+import RegisterForm from "../../components/RegisterAndLoginPageComponents/RegisterForm/RegisterForm";
 import css from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
@@ -9,7 +10,7 @@ const RegistrationPage = () => {
       <Container>
         <div className={css["registration-container"]}>
           <Banner />
-          <p>FORM</p>
+          <RegisterForm />
         </div>
       </Container>
     </Section>
