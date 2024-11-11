@@ -1,5 +1,11 @@
+import Container from "../CommonComponents/Container/Container";
+
 const NavBar = () => {
-  return <div>NAV BAR</div>;
+  return (
+    <header>
+      <Container>NAV BAR</Container>
+    </header>
+  );
 };
 
 export default NavBar;
