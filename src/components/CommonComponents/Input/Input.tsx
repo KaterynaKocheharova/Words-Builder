@@ -8,11 +8,12 @@ export type InputProps<T extends FieldValues> = {
   register: UseFormRegister<T>;
   extraClass: string;
   errorMessage?: string;
+  isWrong: boolean;
 } & Partial<InputHTMLAttributes<HTMLInputElement>>;
 
 const Input = <T extends FieldValues>({
   extraClass,
-  errorMessage,
+  isWrong,
   register,
   name,
   ...props
@@ -23,7 +24,7 @@ const Input = <T extends FieldValues>({
       className={clsx(
         css.input,
         extraClass && css[extraClass],
-        errorMessage && css["wrong-input"]
+        isWrong && css["wrong-input"]
       )}
       {...props}
     />

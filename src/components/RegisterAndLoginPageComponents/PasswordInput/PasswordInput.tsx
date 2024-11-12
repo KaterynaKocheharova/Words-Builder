@@ -13,6 +13,7 @@ const PasswordInput = <T extends FieldValues>({
   errorMessage,
   name,
   extraClass,
+  isWrong,
   ...props
 }: PasswordInputProps<T>) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -20,6 +21,7 @@ const PasswordInput = <T extends FieldValues>({
   return (
     <Relative>
       <Input<T>
+        isWrong={isWrong}
         name={name}
         register={register}
         type={isPasswordShown ? "text" : "password"}

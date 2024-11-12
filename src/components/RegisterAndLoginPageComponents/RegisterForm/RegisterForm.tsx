@@ -1,4 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import AuthFormContainer from "../AuthFormContainer/AuthFormContainer";
 import AuthFormTitle from "../AuthFormTitle/AuthFormTitle";
 import AuthFormDescription from "../AuthFormDescription/AuthFormDescription";
@@ -6,6 +8,8 @@ import Input from "../../CommonComponents/Input/Input";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import Button from "../../CommonComponents/Button/Button";
 import AuthLink from "../AuthLink/AuthLink";
+import Relative from "../../CommonComponents/Relative/Relative";
+import InputError from "../../CommonComponents/InputError/InputError";
 import css from "./RegisterForm.module.css";
 
 export type RegisterFormValues = {
@@ -20,6 +24,18 @@ const defaultValues: RegisterFormValues = {
   password: "",
 };
 
+const registerFormSchema = yup.object({
+  name: yup.string().required("Name is required"),
+  email: yup
+    .string()
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Invalid email")
+    .required("Email is required"),
+  password: yup
+    .string()
+    // .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/, "Invalid password")
+    .required("Psssword is required"),
+});
+
 const RegisterForm = () => {
   const {
     register,
@@ -27,6 +43,7 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm<RegisterFormValues>({
     defaultValues,
+    resolver: yupResolver(registerFormSchema),
   });
 
   const onSubmit: SubmitHandler<RegisterFormValues> = (
@@ -44,22 +61,32 @@ const RegisterForm = () => {
       </AuthFormDescription>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
         <div className={css["input-group"]}>
-          <Input<RegisterFormValues>
-            register={register}
-            name="name"
-            placeholder="Name"
-            extraClass="auth-form-input"
-          />
-          <Input<RegisterFormValues>
-            register={register}
-            name="email"
-            placeholder="Email"
-            extraClass="auth-form-input"
-          />
+          <Relative>
+            <Input<RegisterFormValues>
+              isWrong={Boolean(errors.name?.message)}
+              register={register}
+              name="name"
+              placeholder="Name"
+              extraClass="auth-form-input"
+            />
+            <InputError errorMessage={errors.name?.message} />
+          </Relative>
+          <Relative>
+            <Input<RegisterFormValues>
+              isWrong={Boolean(errors.email?.message)}
+              register={register}
+              name="email"
+              placeholder="Email"
+              extraClass="auth-form-input"
+            />
+            <InputError errorMessage={errors.email?.message} />
+          </Relative>
           <PasswordInput
+            isWrong={Boolean(errors.password?.message)}
             register={register}
             name="password"
             extraClass="auth-form-input"
+            errorMessage={errors.password?.message}
           />
         </div>
         <Button extraClass="registration-button" type="submit">
