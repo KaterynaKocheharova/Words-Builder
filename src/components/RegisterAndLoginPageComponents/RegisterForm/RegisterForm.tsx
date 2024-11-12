@@ -5,6 +5,7 @@ import Input from "../../CommonComponents/Input/Input";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import Button from "../../CommonComponents/Button/Button";
 import AuthLink from "../AuthLink/AuthLink";
+import KeyWords from "../KeyWords/KeyWords";
 import css from "./RegisterForm.module.css";
 
 const RegisterForm = () => {
@@ -15,7 +16,7 @@ const RegisterForm = () => {
         To start using our services, please fill out the registration form
         below. All fields are mandatory:
       </AuthFormDescription>
-      <form>
+      <form className={css.form}>
         <div className={css["input-group"]}>
           <Input name="name" placeholder="Name" extraClass="auth-form-input" />
           <Input
@@ -30,6 +31,7 @@ const RegisterForm = () => {
         </Button>
         <AuthLink to="/login">Login</AuthLink>
       </form>
+      <KeyWords />
     </AuthFormContainer>
   );
 };
