@@ -7,7 +7,7 @@ type RegisterCredentials = {
   name: string;
 };
 
-type AuthResponse = {
+export type AuthResponse = {
   email: string;
   name: string;
   token: string;
