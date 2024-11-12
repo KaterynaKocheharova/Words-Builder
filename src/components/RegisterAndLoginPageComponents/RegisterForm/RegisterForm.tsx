@@ -14,7 +14,7 @@ const RegisterForm = () => {
       </AuthFormDescription>
       <form>
         <div className={css["input-group"]}>
-          <Input name="name" placeholder="Name" extraClass="auth-form-input" />
+          <Input name="name" placeholder="Name" extraClass="auth-form-input" errorMessage="Error" />
           <Input
             name="email"
             placeholder="Email"
