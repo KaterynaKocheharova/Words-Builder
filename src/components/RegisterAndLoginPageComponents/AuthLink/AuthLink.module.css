@@ -1,0 +1,19 @@
+.auth-link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 30px;
+  color: #12141780;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: underline;
+  transition: color 250ms linear;
+}
+
+.auth-link:hover {
+  color: var(--main-font-color);
+}

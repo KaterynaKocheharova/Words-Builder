@@ -4,6 +4,7 @@ import AuthFormDescription from "../AuthFormDescription/AuthFormDescription";
 import Input from "../../CommonComponents/Input/Input";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import Button from "../../CommonComponents/Button/Button";
+import AuthLink from "../AuthLink/AuthLink";
 import css from "./RegisterForm.module.css";
 
 const RegisterForm = () => {
@@ -16,19 +17,18 @@ const RegisterForm = () => {
       </AuthFormDescription>
       <form>
         <div className={css["input-group"]}>
-          <Input
-            name="name"
-            placeholder="Name"
-            extraClass="auth-form-input"
-          />
+          <Input name="name" placeholder="Name" extraClass="auth-form-input" />
           <Input
             name="email"
             placeholder="Email"
             extraClass="auth-form-input"
           />
           <PasswordInput />
-          <Button extraClass="registration-button">Register</Button>
         </div>
+        <Button extraClass="registration-button" type="submit">
+          Register
+        </Button>
+        <AuthLink to="/login">Login</AuthLink>
       </form>
     </AuthFormContainer>
   );
