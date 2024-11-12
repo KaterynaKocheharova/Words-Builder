@@ -12,8 +12,30 @@
   .auth-section {
     padding-top: 140px;
     padding-bottom: 106px;
+    background-image: url(/images/gradient-1x.png);
+
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
   }
 }
+
+/* .hero {
+
+
+}
+
+@media screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx),
+  screen and (min-device-pixel-ratio: 2) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/hero/people-office-mobile@2x.jpg);
+  }
+} */
 
 @media screen and (min-width: 1440px) {
   .auth-section {
