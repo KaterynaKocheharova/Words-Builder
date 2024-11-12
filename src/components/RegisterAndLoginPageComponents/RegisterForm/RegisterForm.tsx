@@ -5,7 +5,6 @@ import Input from "../../CommonComponents/Input/Input";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import Button from "../../CommonComponents/Button/Button";
 import AuthLink from "../AuthLink/AuthLink";
-import KeyWords from "../KeyWords/KeyWords";
 import css from "./RegisterForm.module.css";
 
 const RegisterForm = () => {
@@ -31,7 +30,6 @@ const RegisterForm = () => {
         </Button>
         <AuthLink to="/login">Login</AuthLink>
       </form>
-      <KeyWords />
     </AuthFormContainer>
   );
 };

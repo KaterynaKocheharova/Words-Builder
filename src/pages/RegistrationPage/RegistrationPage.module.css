@@ -3,4 +3,8 @@
   flex-direction: column;
   row-gap: 8px;
   align-items: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    margin-bottom: 98px;
+  }
 }
