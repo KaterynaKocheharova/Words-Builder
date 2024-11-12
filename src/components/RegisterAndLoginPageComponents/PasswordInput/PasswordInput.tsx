@@ -31,9 +31,12 @@ const PasswordInput = ({ errorMessage, ...props }: PasswordInputProps) => {
           ></use>
         </svg>
       </button>
+
       {errorMessage && <InputError errorMessage={errorMessage} />}
     </Relative>
   );
 };
 
 export default PasswordInput;
+
+

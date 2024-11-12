@@ -1,0 +1,19 @@
+.button {
+  width: 100%;
+  padding: 16px 139px 16px 139px;
+  border-radius: 30px;
+  transition: background-color 250ms linear;
+}
+
+.registration-button {
+  background-color: var(--primary-color);
+  font-family: "MacPaw Fixel Display", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--white);
+}
+
+.registration-button:hover {
+  background-color: var(--primary-color-hover);
+}

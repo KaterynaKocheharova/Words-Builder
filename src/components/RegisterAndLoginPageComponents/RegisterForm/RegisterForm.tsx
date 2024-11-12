@@ -3,6 +3,7 @@ import AuthFormTitle from "../AuthFormTitle/AuthFormTitle";
 import AuthFormDescription from "../AuthFormDescription/AuthFormDescription";
 import Input from "../../CommonComponents/Input/Input";
 import PasswordInput from "../PasswordInput/PasswordInput";
+import Button from "../../CommonComponents/Button/Button";
 import css from "./RegisterForm.module.css";
 
 const RegisterForm = () => {
@@ -19,7 +20,6 @@ const RegisterForm = () => {
             name="name"
             placeholder="Name"
             extraClass="auth-form-input"
-            errorMessage="Error"
           />
           <Input
             name="email"
@@ -27,6 +27,7 @@ const RegisterForm = () => {
             extraClass="auth-form-input"
           />
           <PasswordInput />
+          <Button extraClass="registration-button">Register</Button>
         </div>
       </form>
     </AuthFormContainer>
