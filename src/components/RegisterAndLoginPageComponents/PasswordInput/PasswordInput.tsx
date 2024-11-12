@@ -1,25 +1,34 @@
-import { InputHTMLAttributes, useState } from "react";
+import { useState } from "react";
+import { FieldValues } from "react-hook-form";
+import { type InputProps } from "../../../components/CommonComponents/Input/Input";
 import Relative from "../../CommonComponents/Relative/Relative";
 import Input from "../../CommonComponents/Input/Input";
 import InputError from "../../CommonComponents/InputError/InputError";
 import css from "./PasswordInput.module.css";
 
-type PasswordInputProps = {
-  errorMessage?: string;
-} & Partial<InputHTMLAttributes<HTMLInputElement>>;
+type PasswordInputProps<T extends FieldValues> = InputProps<T>;
 
-const PasswordInput = ({ errorMessage, ...props }: PasswordInputProps) => {
+const PasswordInput = <T extends FieldValues>({
+  register,
+  errorMessage,
+  name,
+  extraClass,
+  ...props
+}: PasswordInputProps<T>) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   return (
     <Relative>
-      <Input
+      <Input<T>
+        name={name}
+        register={register}
         type={isPasswordShown ? "text" : "password"}
         placeholder="Password"
-        extraClass="auth-form-input"
+        extraClass={extraClass}
         {...props}
       />
       <button
+        type="button"
         onClick={() => setIsPasswordShown(!isPasswordShown)}
         className={css["eye-button"]}
       >
@@ -38,5 +47,3 @@ const PasswordInput = ({ errorMessage, ...props }: PasswordInputProps) => {
 };
 
 export default PasswordInput;
-
-
