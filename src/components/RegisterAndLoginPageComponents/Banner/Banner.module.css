@@ -20,7 +20,6 @@
 @media screen and (min-width: 1440px) {
   .image-container {
     width: 498px;
-    order: 2;
+    margin-bottom: 16px;
   }
 }
-
