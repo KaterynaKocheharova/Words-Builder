@@ -26,4 +26,11 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .auth-section {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+}
+
 /* paddings for desktop for login page are different - adjust */

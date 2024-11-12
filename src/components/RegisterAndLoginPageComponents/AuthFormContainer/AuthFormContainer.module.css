@@ -10,5 +10,9 @@
     width: 628px;
     padding: 48px 64px 32px 64px;
   }
-}
 
+  @media screen and (min-width: 1440px) {
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
