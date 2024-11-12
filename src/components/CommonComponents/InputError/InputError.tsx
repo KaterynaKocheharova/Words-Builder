@@ -1,7 +1,7 @@
 import css from "./InputError.module.css";
 
 type InputErrorProps = {
-  errorMessage: string;
+  errorMessage?: string;
 };
 
 const InputError = ({ errorMessage }: InputErrorProps) => {

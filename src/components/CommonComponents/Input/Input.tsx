@@ -1,6 +1,4 @@
 import { InputHTMLAttributes } from "react";
-import Relative from "../Relative/Relative";
-import InputError from "../InputError/InputError";
 import css from "./Input.module.css";
 import clsx from "clsx";
 
@@ -10,17 +8,14 @@ type InputProps = { extraClass: string; errorMessage?: string } & Partial<
 
 const Input = ({ extraClass, errorMessage, ...props }: InputProps) => {
   return (
-    <Relative>
-      <input
-        className={clsx(
-          css.input,
-          extraClass && css[extraClass],
-          errorMessage && css["wrong-input"]
-        )}
-        {...props}
-      />
-      {errorMessage && <InputError errorMessage={errorMessage} />}
-    </Relative>
+    <input
+      className={clsx(
+        css.input,
+        extraClass && css[extraClass],
+        errorMessage && css["wrong-input"]
+      )}
+      {...props}
+    />
   );
 };
 
