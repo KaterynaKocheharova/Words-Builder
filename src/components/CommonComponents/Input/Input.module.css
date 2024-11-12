@@ -21,7 +21,7 @@
 }
 
 .wrong-input {
-  border-color: #d80027;
+  border-color: var(--error-color);
 }
 
 .correct-input {

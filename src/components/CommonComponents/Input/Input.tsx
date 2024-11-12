@@ -19,7 +19,7 @@ const Input = ({ extraClass, errorMessage, ...props }: InputProps) => {
         )}
         {...props}
       />
-      {errorMessage && <InputError error={errorMessage} />}
+      {errorMessage && <InputError errorMessage={errorMessage} />}
     </Relative>
   );
 };

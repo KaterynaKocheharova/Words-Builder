@@ -1,11 +1,16 @@
 import css from "./InputError.module.css";
 
 type InputErrorProps = {
-  error: string;
+  errorMessage: string;
 };
 
-const InputError = ({ error }: InputErrorProps) => {
-  return <p className={error && css["error-text"]}>{error}</p>;
+const InputError = ({ errorMessage }: InputErrorProps) => {
+  return <p className={css["error-text"]}>
+    <svg width="16" height="16" className={css["error-icon"]}>
+      <use href="/sprite.svg#icon-error-warning"></use>
+    </svg>
+    {errorMessage}
+    </p>;
 };
 
 export default InputError;
