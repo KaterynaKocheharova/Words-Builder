@@ -8,5 +8,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #85aa9f1a;
+  gap: 24px;
+  background-color: #03120e1a;
+}
+
+.loading-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--main-font-color);
 }

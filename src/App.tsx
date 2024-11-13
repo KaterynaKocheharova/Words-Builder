@@ -1,9 +1,11 @@
 import { lazy, Suspense, useEffect } from "react";
-import { useAppDispatch } from "./redux/hooks";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { selectIsLoading } from "./redux/auth/selectors";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { refreshUser } from "./redux/auth/operations";
 import Layout from "./components/Layout";
 import RestrictedRoute from "./components/RestrictedRoute";
+import Loader from "./components/CommonComponents/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,6 +15,7 @@ const RegistrationPage = lazy(
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 
 export default function App() {
+  const isLoading = useAppSelector(selectIsLoading);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(refreshUser());
@@ -44,6 +47,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <ToastContainer autoClose={3000} />
+          {isLoading && <Loader>{isLoading}</Loader>}
         </Layout>
       </Suspense>
     </div>

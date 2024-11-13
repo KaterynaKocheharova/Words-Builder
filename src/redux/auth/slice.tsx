@@ -55,7 +55,7 @@ const auth = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {
-        state.isLoading = "registering";
+        state.isLoading = "Registering. Please, wait";
       })
       .addCase(
         registerUser.fulfilled,
@@ -73,11 +73,11 @@ const auth = createSlice({
       )
       .addCase(registerUser.rejected, handleError)
       .addCase(refreshUser.pending, (state) => {
-        state.isLoading = "refreshing the user data";
+        state.isLoading = "Refreshing your data. Please, wait";
       })
       .addCase(
         refreshUser.fulfilled,
-        (state, action: PayloadAction<RefreshUserResponse>) => {
+        (state, action: PayloadAction<RefreshPayload>) => {
           const { name, email, token } = action.payload;
           state.isLoggedIn = true;
           state.isLoading = "";
