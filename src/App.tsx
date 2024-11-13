@@ -43,7 +43,7 @@ export default function App() {
               element={
                 <RestrictedRoute
                   component={<LoginPage />}
-                  redirectTo={"/"}
+                  redirectTo={"/dictionary"}
                 />
               }
             />
@@ -52,6 +52,7 @@ export default function App() {
               element={
                 <PrivateRoute
                   component={<DictionaryPage />}
+                  redirectTo={"/login"}
                 />
               }
             />
