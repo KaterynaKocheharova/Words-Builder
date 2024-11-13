@@ -3,10 +3,11 @@
   border-radius: 15px;
   line-height: 1.5;
   background-color: transparent;
-  transition: border-color 250ms linear;
+  transition: border-color 100ms linear;
 }
 
-.input:hover {
+.input:hover,
+.input:focus {
   border-color: #85aa9f;
 }
 
