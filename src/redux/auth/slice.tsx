@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { type AuthResponse } from "./operations";
-import { register } from "./operations";
+import { registerUser } from "./operations";
 import { type BaseSliceState } from "../types";
 
 type AuthState = {
@@ -48,11 +48,11 @@ const auth = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(register.pending, (state) => {
+      .addCase(registerUser.pending, (state) => {
         state.isLoading = "registering";
       })
       .addCase(
-        register.fulfilled,
+        registerUser.fulfilled,
         (state, action: PayloadAction<RegisterPayload>) => {
           const { name, email, token } = action.payload;
           state.isLoading = "";
@@ -65,7 +65,7 @@ const auth = createSlice({
           state.token = token;
         }
       )
-      .addCase(register.rejected, handleError);
+      .addCase(registerUser.rejected, handleError);
     //   .addCase(login.pending, (state) => {
     //     state.loading = "logining";
     //   })

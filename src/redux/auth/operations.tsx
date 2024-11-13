@@ -13,11 +13,13 @@ export type AuthResponse = {
   token: string;
 };
 
+axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api";
+
 const setAuthHeader = (token: string): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const register = createAsyncThunk<
+export const registerUser = createAsyncThunk<
   AuthResponse,
   RegisterCredentials,
   { rejectValue: string }

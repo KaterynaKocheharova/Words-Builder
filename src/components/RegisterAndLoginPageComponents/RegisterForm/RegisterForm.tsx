@@ -1,6 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useAppDispatch } from "../../../redux/hooks";
+import { registerUser } from "../../../redux/auth/operations";
 import AuthFormContainer from "../AuthFormContainer/AuthFormContainer";
 import AuthFormTitle from "../AuthFormTitle/AuthFormTitle";
 import AuthFormDescription from "../AuthFormDescription/AuthFormDescription";
@@ -32,7 +34,10 @@ const registerFormSchema = yup.object({
     .required("Email is required"),
   password: yup
     .string()
-    // .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/, "Invalid password")
+    .matches(
+      /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
+      "The password must consist of 6 English letters and 1 number."
+    )
     .required("Psssword is required"),
 });
 
@@ -46,10 +51,12 @@ const RegisterForm = () => {
     resolver: yupResolver(registerFormSchema),
   });
 
+  const dispatch = useAppDispatch();
+
   const onSubmit: SubmitHandler<RegisterFormValues> = (
-    data: RegisterFormValues
+    credentials: RegisterFormValues
   ) => {
-    console.log(data);
+    dispatch(registerUser(credentials));
   };
 
   return (
