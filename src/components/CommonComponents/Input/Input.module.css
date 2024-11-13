@@ -6,7 +6,6 @@
   transition: border-color 100ms linear;
 }
 
-.input:hover,
 .input:focus {
   border-color: #85aa9f;
 }
