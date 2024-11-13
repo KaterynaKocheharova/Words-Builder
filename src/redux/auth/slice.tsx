@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { type AuthResponse } from "./operations";
+import {
+  refreshUser,
+  type AuthResponse,
+  type RefreshUserResponse,
+} from "./operations";
 import { registerUser } from "./operations";
 import { type BaseSliceState } from "../types";
 
@@ -15,6 +19,8 @@ type AuthState = {
 };
 
 type RegisterPayload = AuthResponse;
+
+type RefreshPayload = RefreshUserResponse;
 
 const initialState: AuthState = {
   user: {
@@ -65,7 +71,23 @@ const auth = createSlice({
           state.token = token;
         }
       )
-      .addCase(registerUser.rejected, handleError);
+      .addCase(registerUser.rejected, handleError)
+      .addCase(refreshUser.pending, (state) => {
+        state.isLoading = "refreshing the user data";
+      })
+      .addCase(
+        refreshUser.fulfilled,
+        (state, action: PayloadAction<RefreshUserResponse>) => {
+          const { name, email, token } = action.payload;
+          state.isLoggedIn = true;
+          state.isLoading = "";
+          state.error = null;
+          state.user.name = name;
+          state.user.email = email;
+          state.token = token;
+        }
+      )
+      .addCase(refreshUser.rejected, handleError);
     //   .addCase(login.pending, (state) => {
     //     state.loading = "logining";
     //   })
@@ -91,16 +113,6 @@ const auth = createSlice({
     //   .addCase(refreshUser.pending, (state) => {
     //     state.loading = "refreshing";
     //   })
-    //   .addCase(refreshUser.fulfilled, (state, action) => {
-    //     state.isLoggedIn = true;
-    //     state.user = action.payload;
-    //     state.loading = null;
-    //     state.error = null;
-    //   })
-    //   .addCase(refreshUser.rejected, (state, action) => {
-    //     state.loading = null;
-    //     state.error = action.payload;
-    //   });
   },
 });
 

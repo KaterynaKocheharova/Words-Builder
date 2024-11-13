@@ -1,5 +1,7 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useAppDispatch } from "./redux/hooks";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { refreshUser } from "./redux/auth/operations";
 import Layout from "./components/Layout";
 import RestrictedRoute from "./components/RestrictedRoute";
 import { ToastContainer } from "react-toastify";
@@ -11,6 +13,11 @@ const RegistrationPage = lazy(
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 
 export default function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, []);
+
   return (
     <div id="App">
       <Suspense fallback={<p>Loading app</p>}>

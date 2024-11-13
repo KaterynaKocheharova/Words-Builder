@@ -42,7 +42,7 @@ export const registerUser = createAsyncThunk<
   }
 });
 
-type RefreshUserResponse = AuthResponse & { _id: string };
+export type RefreshUserResponse = AuthResponse & { _id: string };
 
 export const refreshUser = createAsyncThunk<
   RefreshUserResponse,
