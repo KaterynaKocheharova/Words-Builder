@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { type AuthResponse } from "./operations";
 import { register } from "./operations";
+import { type BaseSliceState } from "../types";
 
 type AuthState = {
   user: {
@@ -26,19 +27,20 @@ const initialState: AuthState = {
   error: "",
 };
 
-const handleError = <T, S>(state: S, action: PayloadAction<T>): void => {
-    if ('isLoading' in state) {
-      state.isLoading = "";  // Assuming that isLoading is a property of the state
-    }
-  
-    if (action.payload instanceof Error) {
-      (state as any).error = action.payload.message;
-    } else if (typeof action.payload === "string") {
-      (state as any).error = action.payload;
-    } else {
-      (state as any).error = "Unknown error";
-    }
-  };
+const handleError = <T, S extends BaseSliceState>(
+  state: S,
+  action: PayloadAction<T>
+): void => {
+  state.isLoading = "";
+
+  if (action.payload instanceof Error) {
+    state.error = action.payload.message;
+  } else if (typeof action.payload === "string") {
+    state.error = action.payload;
+  } else {
+    state.error = "Unknown error";
+  }
+};
 
 const auth = createSlice({
   name: "auth",
