@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAppDispatch } from "../../../redux/hooks";
 import { registerUser } from "../../../redux/auth/operations";
+import { toast } from "react-toastify";
 import AuthFormContainer from "../AuthFormContainer/AuthFormContainer";
 import AuthFormTitle from "../AuthFormTitle/AuthFormTitle";
 import AuthFormDescription from "../AuthFormDescription/AuthFormDescription";
@@ -56,7 +57,10 @@ const RegisterForm = () => {
   const onSubmit: SubmitHandler<RegisterFormValues> = (
     credentials: RegisterFormValues
   ) => {
-    dispatch(registerUser(credentials));
+    dispatch(registerUser(credentials))
+      .unwrap()
+      .then(() => toast.success("Success"))
+      .catch((error: string) => toast.error(error));
   };
 
   return (
