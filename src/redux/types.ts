@@ -6,3 +6,4 @@ export type BaseSliceState = {
 };
 
 export type SelectString = (state: RootState) => string;
+export type SelectBoolean = (state: RootState) => boolean;

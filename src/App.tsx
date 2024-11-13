@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { refreshUser } from "./redux/auth/operations";
 import Layout from "./components/Layout";
 import RestrictedRoute from "./components/RestrictedRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import Loader from "./components/CommonComponents/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,6 +14,8 @@ const RegistrationPage = lazy(
   () => import("./pages/RegistrationPage/RegistrationPage")
 );
 const LoginPage = lazy(() => import("./pages/LoginPage"));
+const DictionaryPage = lazy(() => import("./pages/DictionaryPage/DictionaryPage"));
+
 
 export default function App() {
   const isLoading = useAppSelector(selectIsLoading);
@@ -31,7 +34,7 @@ export default function App() {
               element={
                 <RestrictedRoute
                   component={<RegistrationPage />}
-                  // redirectTo={"/"}
+                  redirectTo={"/dictionary"}
                 />
               }
             />
@@ -40,7 +43,15 @@ export default function App() {
               element={
                 <RestrictedRoute
                   component={<LoginPage />}
-                  // redirectTo={"/"}
+                  redirectTo={"/"}
+                />
+              }
+            />
+            <Route
+              path="/dictionary"
+              element={
+                <PrivateRoute
+                  component={<DictionaryPage />}
                 />
               }
             />
