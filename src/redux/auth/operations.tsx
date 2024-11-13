@@ -1,4 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { type RootState } from "../store.ts";
+
 import axios from "axios";
 
 type RegisterCredentials = {
@@ -40,6 +42,43 @@ export const registerUser = createAsyncThunk<
   }
 });
 
+type RefreshUserResponse = AuthResponse & { _id: string };
+
+export const refreshUser = createAsyncThunk<
+  RefreshUserResponse,
+  void,
+  { state: RootState; rejectValue: string }
+>(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue("No token available");
+    }
+
+    setAuthHeader(persistedToken);
+    try {
+      const { data } = await axios.get<RefreshUserResponse>("/users/current");
+      return data;
+    } catch (error) {
+      if (error instanceof Error) {
+        return thunkAPI.rejectWithValue(error.message);
+      } else if (typeof error === "string") {
+        return thunkAPI.rejectWithValue(error);
+      } else {
+        return thunkAPI.rejectWithValue("Something went wrong during refresh");
+      }
+    }
+  },
+  {
+    condition(_, thunkAPI) {
+      const state = thunkAPI.getState() as RootState;
+      return state.auth.token !== null;
+    },
+  }
+);
+
 // export const login = createAsyncThunk(
 //   "auth/login",
 //   async (credentials, thunkAPI) => {
@@ -62,20 +101,3 @@ export const registerUser = createAsyncThunk<
 //     return thunkAPI.rejectWithValue(error.message);
 //   }
 // });
-
-// export const refreshUser = createAsyncThunk(
-//   "auth/refresh",
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.token;
-//     setAuthHeader(persistedToken);
-//     const { data } = await axios.get("/users/current");
-//     return data;
-//   },
-//   {
-//     condition(_, thunkAPI) {
-//       const state = thunkAPI.getState();
-//       return state.auth.token !== null;
-//     },
-//   }
-// );
