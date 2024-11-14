@@ -3,10 +3,6 @@ import { useScreenSizes } from "../../../hooks/useScreenSizes";
 import clsx from "clsx";
 import css from "./Navlinks.module.css";
 
-type NavLinksProps = {
-  extraClass: string;
-};
-
 type NavLinksData = {
   label: string;
   to: string;
@@ -40,12 +36,12 @@ export const buildActiveClass = ({
   );
 };
 
-const NavLinks = ({ extraClass }: NavLinksProps) => {
+const NavLinks = () => {
   const { isLargeScreen, isMediumScreen, isSmallScreen } = useScreenSizes();
 
   return (
     <nav>
-      <ul>
+      <ul className={css["navlinks-list"]}>
         {navlinksData.map((item) => {
           return (
             <li>

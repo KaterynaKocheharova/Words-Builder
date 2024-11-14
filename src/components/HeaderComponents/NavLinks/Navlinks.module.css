@@ -1,3 +1,16 @@
+.navlinks-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+@media screen and (min-width: 1440px) {
+  .navlinks-list {
+    flex-direction: row;
+    column-gap: 8px;
+  }
+}
+
 .link {
   display: block;
   font-size: 14px;
