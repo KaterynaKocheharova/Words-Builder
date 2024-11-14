@@ -14,8 +14,11 @@ const RegistrationPage = lazy(
   () => import("./pages/RegistrationPage/RegistrationPage")
 );
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-const DictionaryPage = lazy(() => import("./pages/DictionaryPage/DictionaryPage"));
-
+const DictionaryPage = lazy(
+  () => import("./pages/DictionaryPage/DictionaryPage")
+);
+const TrainingPage = lazy(() => import("./pages/TrainingPage/TrainingPage"));
+const RecommendPage = lazy(() => import("./pages/RecommendPage/RecommendPage"));
 
 export default function App() {
   const isLoading = useAppSelector(selectIsLoading);
@@ -52,6 +55,24 @@ export default function App() {
               element={
                 <PrivateRoute
                   component={<DictionaryPage />}
+                  redirectTo={"/login"}
+                />
+              }
+            />
+            <Route
+              path="/recommend"
+              element={
+                <PrivateRoute
+                  component={<RecommendPage />}
+                  redirectTo={"/login"}
+                />
+              }
+            />
+            <Route
+              path="/training"
+              element={
+                <PrivateRoute
+                  component={<TrainingPage />}
                   redirectTo={"/login"}
                 />
               }
