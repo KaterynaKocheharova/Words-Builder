@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Section from "../../components/CommonComponents/Section/Section";
+import AuthPagesFlexContainer from "../../components/RegisterAndLoginPageComponents/AuthPagesFlexContainer/AuthPagesFlexContainer";
 import Banner from "../../components/RegisterAndLoginPageComponents/Banner/Banner";
 import RegisterForm from "../../components/RegisterAndLoginPageComponents/RegisterForm/RegisterForm";
 import KeyWords from "../../components/RegisterAndLoginPageComponents/KeyWords/KeyWords";
@@ -25,14 +26,14 @@ const RegistrationPage = () => {
 
   return (
     <Section sectionClass="auth-section">
-      <div className={css["registration-container"]}>
+      <AuthPagesFlexContainer>
         <div className={css["banner-keywords-container"]}>
           <Banner />
           {isLargeScreen && <KeyWords />}
         </div>
         <RegisterForm />
-      </div>
-      {isMediumScreen  && !isLargeScreen && <KeyWords />}
+      </AuthPagesFlexContainer>
+      {isMediumScreen && !isLargeScreen && <KeyWords />}
     </Section>
   );
 };
