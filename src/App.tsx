@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 const RegistrationPage = lazy(
   () => import("./pages/RegistrationPage/RegistrationPage")
 );
-const LoginPage = lazy(() => import("./pages/LoginPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const DictionaryPage = lazy(() => import("./pages/DictionaryPage/DictionaryPage"));
 
 

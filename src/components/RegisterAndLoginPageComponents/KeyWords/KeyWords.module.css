@@ -1,23 +1,17 @@
 .keywords-list {
-  display: none;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  line-height: 1.5;
+  color: #121417cc;
 }
 
-@media screen and (min-width: 768px) {
-  .keywords-list {
-    display: flex;
-    justify-content: center;
-    gap: 26px;
-    line-height: 1.5;
-    color: #121417cc;
-  }
+.keyword {
+  position: relative;
+}
 
-  .keyword {
-    position: relative;
-  }
-
-  .keyword:not(:last-child)::after {
-    content: "·";
-    right: -14px;
-    position: absolute;
-  }
+.keyword:not(:last-child)::after {
+  content: "·";
+  right: -14px;
+  position: absolute;
 }

@@ -7,13 +7,15 @@ import css from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1400);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 767);
 
   useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1400);
+      setIsSmallScreen(window.innerWidth <= 767);
     };
     window.addEventListener("resize", handleResize);
-    
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -33,7 +35,7 @@ const RegistrationPage = () => {
             <Banner />
             <RegisterForm />
           </div>
-          <KeyWords />
+          {!isSmallScreen && <KeyWords />}
         </>
       )}
     </Section>
