@@ -5,7 +5,6 @@ import BannerKeywordsContainer from "../../components/RegisterAndLoginPageCompon
 import Banner from "../../components/RegisterAndLoginPageComponents/Banner/Banner";
 import LoginForm from "../../components/RegisterAndLoginPageComponents/LoginForm/LoginForm";
 import KeyWords from "../../components/RegisterAndLoginPageComponents/KeyWords/KeyWords";
-import css from "./LoginPage.module.css";
 
 const LoginPage = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1400);
