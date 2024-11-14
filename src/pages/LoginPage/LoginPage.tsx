@@ -26,7 +26,7 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <Section sectionClass="auth-section">
+    <Section sectionClass="auth-section" extraClass="login">
       <AuthPagesFlexContainer extraClass="login-flex">
         <BannerKeywordsContainer>
           <Banner />

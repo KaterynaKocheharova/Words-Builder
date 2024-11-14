@@ -33,4 +33,9 @@
   }
 }
 
-/* paddings for desktop for login page are different - adjust */
+@media screen and (min-width: 1440px) {
+  .login {
+    padding-top: 114px;
+    padding-bottom: 104px;
+  }
+}

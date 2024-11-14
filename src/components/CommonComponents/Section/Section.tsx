@@ -1,13 +1,21 @@
+import clsx from "clsx";
 import css from "./Section.module.css";
 
 type SectionProps = {
   children: React.ReactNode;
   sectionClass?: string;
+  extraClass?: string;
 };
 
-const Section = ({ children, sectionClass }: SectionProps) => {
+const Section = ({ children, sectionClass, extraClass }: SectionProps) => {
   return (
-    <section className={sectionClass ? css[sectionClass] : css.section}>
+    <section
+      className={clsx(
+        sectionClass && css[sectionClass],
+        css.section,
+        extraClass && css[extraClass]
+      )}
+    >
       {children}
     </section>
   );

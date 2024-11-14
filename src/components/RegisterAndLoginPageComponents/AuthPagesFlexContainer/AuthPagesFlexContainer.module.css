@@ -6,6 +6,7 @@
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     margin-bottom: 98px;
+    row-gap: unset;
   }
 
   @media screen and (min-width: 1440px) {
@@ -17,4 +18,11 @@
 
 .login-flex {
   row-gap: 43px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .login-flex {
+    row-gap: unset;
+    margin-bottom: 172px;
+  }
 }
