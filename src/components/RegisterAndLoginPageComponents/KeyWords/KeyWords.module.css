@@ -1,9 +1,15 @@
 .keywords-list {
+  font-size: 14px;
+  gap: 24px;
   display: flex;
   justify-content: center;
-  gap: 26px;
   line-height: 1.5;
   color: #121417cc;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    gap: 26px;
+  }
 }
 
 .keyword {

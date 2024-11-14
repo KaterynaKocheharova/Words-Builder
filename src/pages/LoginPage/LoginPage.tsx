@@ -4,19 +4,18 @@ import RegisterForm from "../../components/RegisterAndLoginPageComponents/Regist
 import KeyWords from "../../components/RegisterAndLoginPageComponents/KeyWords/KeyWords";
 import css from "./LoginPage.module.css";
 
-const RegistrationPage = () => {
+const LoginPage = () => {
   return (
     <Section sectionClass="auth-section">
-      <div className={css["registration-container"]}>
+      <div className={css["login-container"]}>
         <div className={css["banner-keywords-container"]}>
           <Banner />
           <KeyWords />
         </div>
         <RegisterForm />
       </div>
-      <KeyWords />
     </Section>
   );
 };
 
-export default RegistrationPage;
+export default LoginPage;
