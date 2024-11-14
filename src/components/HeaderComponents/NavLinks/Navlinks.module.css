@@ -1,7 +1,27 @@
 .link {
-
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 12px 20px;
+  border-radius: 15px;
 }
 
-.active-link {
-    
+.menu-link {
+  background-color: transparent;
+  color: var(--white);
+}
+
+.desktop-link {
+  color: var(--main-font-color);
+}
+
+.menu-active-link {
+  background-color: var(--white);
+  color: var(--main-font-color);
+}
+
+.desktop-active-link {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
