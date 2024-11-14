@@ -43,6 +43,19 @@ const handleError = <S extends BaseSliceState>(
   state.error = action.payload;
 };
 
+const handleGetUserInfo = (
+  state: AuthState,
+  action: PayloadAction<AuthResponse>
+) => {
+  const { name, email, token } = action.payload;
+  state.isLoggedIn = true;
+  state.isLoading = "";
+  state.error = "";
+  state.user.name = name;
+  state.user.email = email;
+  state.token = token;
+};
+
 const auth = createSlice({
   name: "auth",
   initialState,
@@ -52,52 +65,17 @@ const auth = createSlice({
       .addCase(registerUser.pending, (state) => {
         state.isLoading = "Registering. Please, wait";
       })
-      .addCase(
-        registerUser.fulfilled,
-        (state, action: PayloadAction<RegisterPayload>) => {
-          const { name, email, token } = action.payload;
-          state.isLoading = "";
-          state.error = "";
-          state.isLoggedIn = true;
-          state.user = {
-            name,
-            email,
-          };
-          state.token = token;
-        }
-      )
+      .addCase(registerUser.fulfilled, handleGetUserInfo)
       .addCase(registerUser.rejected, handleError)
       .addCase(refreshUser.pending, (state) => {
         state.isLoading = "Refreshing your data. Please, wait";
       })
-      .addCase(
-        refreshUser.fulfilled,
-        (state, action: PayloadAction<RefreshPayload>) => {
-          const { name, email, token } = action.payload;
-          state.isLoggedIn = true;
-          state.isLoading = "";
-          state.error = "";
-          state.user.name = name;
-          state.user.email = email;
-          state.token = token;
-        }
-      )
+      .addCase(refreshUser.fulfilled, handleGetUserInfo)
       .addCase(refreshUser.rejected, handleError)
       .addCase(loginUser.pending, (state) => {
         state.isLoading = "Registering.Please, wait";
       })
-      .addCase(
-        loginUser.fulfilled,
-        (state, action: PayloadAction<LoginPayload>) => {
-          const { name, email, token } = action.payload;
-          state.isLoggedIn = true;
-          state.isLoading = "";
-          state.error = "";
-          state.user.name = name;
-          state.user.email = email;
-          state.token = token;
-        }
-      )
+      .addCase(loginUser.fulfilled, handleGetUserInfo)
       .addCase(loginUser.rejected, handleError);
     //   .addCase(login.pending, (state) => {
     //     state.loading = "logining";
