@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   refreshUser,
   type AuthResponse,
-  type RefreshUserResponse,
 } from "./operations";
 import { registerUser, loginUser } from "./operations";
 import { type BaseSliceState } from "../types";
@@ -18,11 +17,7 @@ type AuthState = {
   error: string | undefined;
 };
 
-type RegisterPayload = AuthResponse;
-
-type LoginPayload = RegisterPayload;
-
-type RefreshPayload = RefreshUserResponse;
+type UserDataPayload = AuthResponse;
 
 const initialState: AuthState = {
   user: {
@@ -45,7 +40,7 @@ const handleError = <S extends BaseSliceState>(
 
 const handleGetUserInfo = (
   state: AuthState,
-  action: PayloadAction<AuthResponse>
+  action: PayloadAction<UserDataPayload>
 ) => {
   const { name, email, token } = action.payload;
   state.isLoggedIn = true;
