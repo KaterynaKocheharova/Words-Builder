@@ -16,39 +16,25 @@ const LoginPage = () => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1400);
       setIsSmallScreen(window.innerWidth <= 767);
-      setIsMediumScreen(window.innerWidth >= 768 && window.innerWidth <= 1440);
+      setIsMediumScreen(window.innerWidth >= 768 && window.innerWidth <= 1439);
     };
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (isSmallScreen || isLargeScreen) {
-    return (
-      <Section sectionClass="auth-section">
-        <div className={css["login-container"]}>
-          <div className={css["banner-keywords-container"]}>
-            <Banner />
-            <KeyWords />
-          </div>
-          <LoginForm />
-        </div>
-      </Section>
-    );
-  }
-
-  if (isMediumScreen) {
-    return (
-      <Section sectionClass="auth-section">
-        <div className={css["login-container"]}>
+  return (
+    <Section sectionClass="auth-section">
+      <div className={css["login-container"]}>
+        <div className={css["banner-keywords-container"]}>
           <Banner />
-          <LoginForm />
+          {(isSmallScreen || isLargeScreen) && <KeyWords />}
         </div>
-        <KeyWords />
-      </Section>
-    );
-  }
+        <LoginForm />
+      </div>
+      {isMediumScreen && !isLargeScreen && <KeyWords />}
+    </Section>
+  );
 };
-
 
 export default LoginPage;
