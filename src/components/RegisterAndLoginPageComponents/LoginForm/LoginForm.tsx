@@ -45,11 +45,11 @@ const LoginForm = () => {
 
   const dispatch = useAppDispatch();
 
-  const onSubmit: SubmitHandler<RegisterFormValues> = (
-    credentials: RegisterFormValues
+  const onSubmit: SubmitHandler<LoginFormValues> = (
+    credentials: LoginFormValues
   ) => {
     console.log(credentials);
-    // dispatch(registerUser(credentials))
+    // dispatch(loginUser(credentials))
     //   .unwrap()
     //   .then(() => toast.success("Success"))
     //   .catch((error: string) => toast.error(error));
@@ -61,7 +61,7 @@ const LoginForm = () => {
       <AuthFormDescription>
         Please enter your login details to continue using our service:
       </AuthFormDescription>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <InputGroupContainer>
           <Relative>
             <Input<LoginFormValues>
