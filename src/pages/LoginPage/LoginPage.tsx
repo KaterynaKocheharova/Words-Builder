@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Section from "../../components/CommonComponents/Section/Section";
 import AuthPagesFlexContainer from "../../components/RegisterAndLoginPageComponents/AuthPagesFlexContainer/AuthPagesFlexContainer";
+import BannerKeywordsContainer from "../../components/RegisterAndLoginPageComponents/BannerKeyWordsConatiner/BannerKeywordsContainer";
 import Banner from "../../components/RegisterAndLoginPageComponents/Banner/Banner";
 import LoginForm from "../../components/RegisterAndLoginPageComponents/LoginForm/LoginForm";
 import KeyWords from "../../components/RegisterAndLoginPageComponents/KeyWords/KeyWords";
@@ -26,11 +27,11 @@ const LoginPage = () => {
 
   return (
     <Section sectionClass="auth-section">
-      <AuthPagesFlexContainer>
-        <div className={css["banner-keywords-container"]}>
+      <AuthPagesFlexContainer extraClass="login-flex">
+        <BannerKeywordsContainer>
           <Banner />
           {(isSmallScreen || isLargeScreen) && <KeyWords />}
-        </div>
+        </BannerKeywordsContainer>
         <LoginForm />
       </AuthPagesFlexContainer>
       {isMediumScreen && !isLargeScreen && <KeyWords />}
