@@ -14,7 +14,6 @@ import Button from "../../CommonComponents/Button/Button";
 import AuthLink from "../AuthLink/AuthLink";
 import Relative from "../../CommonComponents/Relative/Relative";
 import InputError from "../../CommonComponents/InputError/InputError";
-import css from "./RegisterForm.module.css";
 
 export type RegisterFormValues = {
   email: string;
