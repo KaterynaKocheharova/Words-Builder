@@ -1,6 +1,6 @@
 import Section from "../../components/CommonComponents/Section/Section";
 import Banner from "../../components/RegisterAndLoginPageComponents/Banner/Banner";
-import RegisterForm from "../../components/RegisterAndLoginPageComponents/RegisterForm/RegisterForm";
+import LoginForm from "../../components/RegisterAndLoginPageComponents/LoginForm/LoginForm";
 import KeyWords from "../../components/RegisterAndLoginPageComponents/KeyWords/KeyWords";
 import css from "./LoginPage.module.css";
 
@@ -12,7 +12,7 @@ const LoginPage = () => {
           <Banner />
           <KeyWords />
         </div>
-        <RegisterForm />
+        <LoginForm />
       </div>
     </Section>
   );
