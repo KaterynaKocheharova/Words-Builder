@@ -23,7 +23,7 @@ const LoginPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (isSmallScreen) {
+  if (isSmallScreen || isLargeScreen) {
     return (
       <Section sectionClass="auth-section">
         <div className={css["login-container"]}>
@@ -49,5 +49,6 @@ const LoginPage = () => {
     );
   }
 };
+
 
 export default LoginPage;
