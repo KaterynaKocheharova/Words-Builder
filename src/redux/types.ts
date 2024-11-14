@@ -2,7 +2,7 @@ import { RootState } from "./store";
 
 export type BaseSliceState = {
   isLoading: boolean | string;
-  error: Error | string | null;
+  error: string | undefined;
 };
 
 export type SelectString = (state: RootState) => string;

@@ -4,7 +4,7 @@ import {
   type AuthResponse,
   type RefreshUserResponse,
 } from "./operations";
-import { registerUser } from "./operations";
+import { registerUser, loginUser } from "./operations";
 import { type BaseSliceState } from "../types";
 
 type AuthState = {
@@ -15,10 +15,12 @@ type AuthState = {
   token: string;
   isLoggedIn: boolean;
   isLoading: string;
-  error: null | Error | string;
+  error: string | undefined;
 };
 
 type RegisterPayload = AuthResponse;
+
+type LoginPayload = RegisterPayload;
 
 type RefreshPayload = RefreshUserResponse;
 
@@ -33,19 +35,12 @@ const initialState: AuthState = {
   error: "",
 };
 
-const handleError = <T, S extends BaseSliceState>(
+const handleError = <S extends BaseSliceState>(
   state: S,
-  action: PayloadAction<T>
+  action: PayloadAction<string | undefined>
 ): void => {
   state.isLoading = "";
-
-  if (action.payload instanceof Error) {
-    state.error = action.payload.message;
-  } else if (typeof action.payload === "string") {
-    state.error = action.payload;
-  } else {
-    state.error = "Unknown error";
-  }
+  state.error = action.payload;
 };
 
 const auth = createSlice({
@@ -62,7 +57,7 @@ const auth = createSlice({
         (state, action: PayloadAction<RegisterPayload>) => {
           const { name, email, token } = action.payload;
           state.isLoading = "";
-          state.error = null;
+          state.error = "";
           state.isLoggedIn = true;
           state.user = {
             name,
@@ -81,13 +76,29 @@ const auth = createSlice({
           const { name, email, token } = action.payload;
           state.isLoggedIn = true;
           state.isLoading = "";
-          state.error = null;
+          state.error = "";
           state.user.name = name;
           state.user.email = email;
           state.token = token;
         }
       )
-      .addCase(refreshUser.rejected, handleError);
+      .addCase(refreshUser.rejected, handleError)
+      .addCase(loginUser.pending, (state) => {
+        state.isLoading = "Registering.Please, wait";
+      })
+      .addCase(
+        loginUser.fulfilled,
+        (state, action: PayloadAction<LoginPayload>) => {
+          const { name, email, token } = action.payload;
+          state.isLoggedIn = true;
+          state.isLoading = "";
+          state.error = "";
+          state.user.name = name;
+          state.user.email = email;
+          state.token = token;
+        }
+      )
+      .addCase(loginUser.rejected, handleError);
     //   .addCase(login.pending, (state) => {
     //     state.loading = "logining";
     //   })

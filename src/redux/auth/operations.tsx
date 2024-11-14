@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type RootState } from "../store.ts";
+import { type LoginFormValues } from "../../components/RegisterAndLoginPageComponents/LoginForm/LoginForm.tsx";
 
 import axios from "axios";
 
@@ -9,11 +10,17 @@ type RegisterCredentials = {
   name: string;
 };
 
+type LoginCredentials = LoginFormValues;
+
 export type AuthResponse = {
   email: string;
   name: string;
   token: string;
 };
+
+type LoginResponse = AuthResponse;
+
+export type RefreshUserResponse = AuthResponse & { _id: string };
 
 axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api";
 
@@ -37,12 +44,28 @@ export const registerUser = createAsyncThunk<
     if (error instanceof Error) {
       return thunkAPI.rejectWithValue(error.message);
     } else {
-      return thunkAPI.rejectWithValue("Something went wrong with registration");
+      return thunkAPI.rejectWithValue("Something went wrong");
     }
   }
 });
 
-export type RefreshUserResponse = AuthResponse & { _id: string };
+export const loginUser = createAsyncThunk<
+  LoginResponse,
+  LoginCredentials,
+  { rejectValue: string }
+>("auth/login", async (credentials, thunkAPI) => {
+  try {
+    const { data } = await axios.post("/users/signin", credentials);
+    setAuthHeader(data.token);
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      return thunkAPI.rejectWithValue(error.message);
+    } else {
+      return thunkAPI.rejectWithValue("Something went wrong");
+    }
+  }
+});
 
 export const refreshUser = createAsyncThunk<
   RefreshUserResponse,
@@ -78,19 +101,6 @@ export const refreshUser = createAsyncThunk<
     },
   }
 );
-
-// export const login = createAsyncThunk(
-//   "auth/login",
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const { data } = await axios.post("/users/login", credentials);
-//       setAuthHeader(data.token);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 // export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
 //   try {
