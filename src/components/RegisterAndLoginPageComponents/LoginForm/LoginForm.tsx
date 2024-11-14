@@ -14,7 +14,6 @@ import AuthLink from "../AuthLink/AuthLink";
 import Relative from "../../CommonComponents/Relative/Relative";
 import InputError from "../../CommonComponents/InputError/InputError";
 import { type RegisterFormValues } from "../RegisterForm/RegisterForm";
-import css from "./LoginForm.module.css";
 
 export type LoginFormValues = Pick<RegisterFormValues, "email" | "password">;
 
