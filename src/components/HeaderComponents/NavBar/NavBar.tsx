@@ -7,11 +7,14 @@ import css from "./NavBar.module.css";
 
 const NavBar = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
   return (
     <header className={css.header}>
       <Container>
-        <Logo />
-        {isLoggedIn && <NavLinks />}
+        <div className={css.flex}>
+          <Logo />
+          {isLoggedIn && <NavLinks />}
+        </div>
       </Container>
     </header>
   );
