@@ -5,21 +5,37 @@
 }
 
 .name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .avatar-round {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  background-color: var(--primary-color);
+  background-color: var(--white);
+
+  @media screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-color: var(--primary-color);
+  }
 }
 
 .avatar-icon {
-  fill: #fcfcfcb2;
+  fill: var(--primary-color);
+  @media screen and (min-width: 1440px) {
+    fill: #fcfcfcb2;
+  }
 }
