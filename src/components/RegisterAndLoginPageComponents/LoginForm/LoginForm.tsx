@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useAppDispatch } from "../../../redux/hooks";
+import { loginUser } from "../../../redux/auth/operations";
 import { toast } from "react-toastify";
 import AuthFormContainer from "../AuthFormContainer/AuthFormContainer";
 import AuthFormTitle from "../AuthFormTitle/AuthFormTitle";
@@ -48,11 +49,10 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginFormValues> = (
     credentials: LoginFormValues
   ) => {
-    console.log(credentials);
-    // dispatch(loginUser(credentials))
-    //   .unwrap()
-    //   .then(() => toast.success("Success"))
-    //   .catch((error: string) => toast.error(error));
+    dispatch(loginUser(credentials))
+      .unwrap()
+      .then(() => toast.success("Success"))
+      .catch((error: string) => toast.error(error));
   };
 
   return (

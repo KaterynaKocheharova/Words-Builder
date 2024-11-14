@@ -60,7 +60,11 @@ export const loginUser = createAsyncThunk<
     return data;
   } catch (error) {
     if (error instanceof Error) {
-      return thunkAPI.rejectWithValue(error.message);
+      if (error.message === "Request failed with status code 401") {
+        return thunkAPI.rejectWithValue("Incorrect email ro password");
+      } else {
+        return thunkAPI.rejectWithValue(error.message);
+      }
     } else {
       return thunkAPI.rejectWithValue("Something went wrong");
     }
