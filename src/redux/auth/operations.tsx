@@ -20,6 +20,10 @@ export type AuthResponse = {
 
 type LoginResponse = AuthResponse;
 
+type LogoutResponse = {
+  message: string;
+};
+
 export type RefreshUserResponse = AuthResponse & { _id: string };
 
 axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api";
@@ -75,23 +79,23 @@ export const loginUser = createAsyncThunk<
   }
 });
 
-export const logOut = createAsyncThunk<{ rejectValue: string }>(
-  "auth/logout",
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.post("/users/signout");
-      clearAuthHeader();
-      return data;
-    } catch (error) {
-      if (error instanceof Error) {
-        return thunkAPI.rejectWithValue(error.message);
-      } else {
-        return thunkAPI.rejectWithValue("Something went wrong");
-      }
+export const logoutUser = createAsyncThunk<
+  LogoutResponse,
+  void,
+  { rejectValue: string }
+>("auth/logout", async (_, thunkAPI) => {
+  try {
+    const { data } = await axios.post("/users/signout");
+    clearAuthHeader();
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      return thunkAPI.rejectWithValue(error.message);
+    } else {
+      return thunkAPI.rejectWithValue("Something went wrong");
     }
   }
-);
-
+});
 export const refreshUser = createAsyncThunk<
   RefreshUserResponse,
   void,
