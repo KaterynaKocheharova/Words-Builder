@@ -1,3 +1,4 @@
+import { MenuItem } from "@headlessui/react";
 import NavigationLink from "../NavigationLink/NavigationLink";
 import css from "./UserNav.module.css";
 
@@ -21,11 +22,21 @@ const UserNav = ({ isMenuNav }: UserNavProps) => {
     <nav>
       <ul className={css["navlinks-list"]}>
         {navlinksData.map((item) => {
-          return (
-            <li>
-              <NavigationLink linkData={item} />
-            </li>
-          );
+          if (isMenuNav) {
+            return (
+              <MenuItem>
+                {({ close }) => (
+                  <NavigationLink onLinkClick={close} linkData={item} />
+                )}
+              </MenuItem>
+            );
+          } else {
+            return (
+              <li>
+                <NavigationLink linkData={item} />
+              </li>
+            );
+          }
         })}
       </ul>
     </nav>

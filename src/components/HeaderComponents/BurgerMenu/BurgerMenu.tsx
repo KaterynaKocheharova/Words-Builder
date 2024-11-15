@@ -1,5 +1,6 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { Menu, MenuButton, MenuItems } from "@headlessui/react";
 import Avatar from "../Avatar/Avatar";
+import UserNav from "../UserNav/UserNav";
 import css from "./BurgerMenu.module.css";
 
 const BurgerMenu = () => {
@@ -12,7 +13,7 @@ const BurgerMenu = () => {
               viewBox="0 0 47 32"
               width="32"
               height="32"
-              className={`${css.icon} ${open ? css.open : ""}`}
+              className={css.icon}
             >
               <path
                 stroke="black"
@@ -47,11 +48,17 @@ const BurgerMenu = () => {
             <div className={css["top-flex"]}>
               <Avatar inMenu />
               <button onClick={close} className={css["close-button"]}>
-                <svg width="32" height="32" aria-label="close button icon" className={css["close-icon"]}>
+                <svg
+                  width="32"
+                  height="32"
+                  aria-label="close button icon"
+                  className={css["close-icon"]}
+                >
                   <use href="/sprite.svg#icon-close"></use>
                 </svg>
               </button>
             </div>
+            <UserNav />
           </MenuItems>
         </>
       )}
