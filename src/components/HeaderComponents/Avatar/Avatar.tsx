@@ -4,16 +4,21 @@ import clsx from "clsx";
 import css from "./Avatar.module.css";
 
 type AvatarProps = {
-  extraRoundClass?: string;
+  inMenu?: boolean;
 };
 
-const Avatar = ({ extraRoundClass }: AvatarProps) => {
+const Avatar = ({ inMenu }: AvatarProps) => {
   const userName = useAppSelector(selectUsername);
 
   return (
     <div className={css.flex}>
-      <p className={css.name}>{userName}</p>
-      <div className={clsx(css["avatar-round"], extraRoundClass && css[extraRoundClass])}>
+      <p className={clsx(css.name, inMenu && css["menu-name"])}>{userName}</p>
+      <div
+        className={clsx(
+          css["avatar-round"],
+          inMenu && css["menu-avatar-round"]
+        )}
+      >
         <svg width="24" height="24" className={css["avatar-icon"]}>
           <use href="/sprite.svg#icon-user"></use>
         </svg>

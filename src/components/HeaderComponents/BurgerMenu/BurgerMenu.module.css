@@ -33,3 +33,28 @@
     width: 40%;
   }
 }
+
+.top-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 0 16px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 32px 0 32px;
+  }
+}
+
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: var(--white);
+}
+
+.close-icon {
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+}
