@@ -18,7 +18,7 @@
   color: var(--white)
 }
 
-.avatar-round {
+.UserBar-round {
   width: 36px;
   height: 36px;
   display: flex;
@@ -34,7 +34,7 @@
   }
 }
 
-.menu-avatar-round {
+.menu-UserBar-round {
   background-color: var(--white);
   fill: var(--primary-color);
 }

@@ -1,13 +1,13 @@
 import { useAppSelector } from "../../../redux/hooks";
 import { selectUsername } from "../../../redux/auth/selectors";
 import clsx from "clsx";
-import css from "./Avatar.module.css";
+import css from "./UserBar.module.css";
 
-type AvatarProps = {
+type UserBarProps = {
   inMenu?: boolean;
 };
 
-const Avatar = ({ inMenu }: AvatarProps) => {
+const UserBar = ({ inMenu }: UserBarProps) => {
   const userName = useAppSelector(selectUsername);
 
   return (
@@ -15,11 +15,11 @@ const Avatar = ({ inMenu }: AvatarProps) => {
       <p className={clsx(css.name, inMenu && css["menu-name"])}>{userName}</p>
       <div
         className={clsx(
-          css["avatar-round"],
-          inMenu && css["menu-avatar-round"]
+          css["UserBar-round"],
+          inMenu && css["menu-UserBar-round"]
         )}
       >
-        <svg width="24" height="24" className={css["avatar-icon"]}>
+        <svg width="24" height="24" className={css["UserBar-icon"]}>
           <use href="/sprite.svg#icon-user"></use>
         </svg>
       </div>
@@ -27,4 +27,4 @@ const Avatar = ({ inMenu }: AvatarProps) => {
   );
 };
 
-export default Avatar;
+export default UserBar;

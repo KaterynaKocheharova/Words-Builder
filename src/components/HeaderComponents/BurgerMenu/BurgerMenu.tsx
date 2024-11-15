@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuItems } from "@headlessui/react";
-import Avatar from "../Avatar/Avatar";
+import UserBar from "../UserBar/UserBar";
 import UserNav from "../UserNav/UserNav";
 import LogoutButton from "../LogoutButton/LogoutButton";
 import css from "./BurgerMenu.module.css";
@@ -47,7 +47,7 @@ const BurgerMenu = () => {
           </MenuButton>
           <MenuItems className={css.container}>
             <div className={css["top-flex"]}>
-              <Avatar inMenu />
+              <UserBar inMenu />
               <button onClick={close} className={css["close-button"]}>
                 <svg
                   width="32"
