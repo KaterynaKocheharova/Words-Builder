@@ -23,7 +23,11 @@ const UserNav = ({ isMenuNav }: UserNavProps) => {
       <ul className={css["navlinks-list"]}>
         {navlinksData.map((item) => {
           if (isMenuNav) {
-            return <MenuItem as={NavigationLink} linkData={item} />;
+            return (
+              <li>
+                <MenuItem as={NavigationLink} linkData={item} />;
+              </li>
+            );
           } else {
             return (
               <li>
