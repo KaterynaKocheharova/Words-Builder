@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import css from "./BurgerButton.module.css";
+import css from "./BurgerMenu.module.css";
 
-const BurgerButton = () => {
+const BurgerMenu = () => {
   return (
     <Menu>
       <MenuButton className={css.button}>
@@ -35,7 +35,13 @@ const BurgerButton = () => {
           ></path>
         </svg>
       </MenuButton>
-      <MenuItems anchor="bottom">
+      {/* <MenuItems className={css.container}></MenuItems> */}
+      <div className={css.container}></div>
+
+      {/* <MenuItems  anchor="bottom">
+
+
+
         <MenuItem>
           <a className="block data-[focus]:bg-blue-100" href="/settings">
             Settings
@@ -50,8 +56,10 @@ const BurgerButton = () => {
           <a className="block data-[focus]:bg-blue-100" href="/license">
             License
           </a>
-        </MenuItem>
-      </MenuItems>
+        </MenuItem> 
+
+
+      </MenuItems> */}
     </Menu>
     // <button className={css.button}>
     //   <svg width="32" height="32" className={css.icon}>
@@ -61,4 +69,4 @@ const BurgerButton = () => {
   );
 };
 
-export default BurgerButton;
+export default BurgerMenu;

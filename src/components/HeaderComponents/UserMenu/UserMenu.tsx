@@ -1,6 +1,6 @@
 import { useScreenSizes } from "../../../hooks/useScreenSizes";
 import Avatar from "../Avatar/Avatar";
-import BurgerButton from "../BurgerButton/BurgerButton";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LogoutButton from "../LogoutButton/LogoutButton";
 import css from "./UserMenu.module.css";
 
@@ -10,7 +10,7 @@ const UserMenu = () => {
   return (
     <div className={css.flex}>
       <Avatar />
-      {isLargeScreen ? <LogoutButton /> : <BurgerButton />}
+      {isLargeScreen ? <LogoutButton /> : <BurgerMenu />}
     </div>
   );
 };
