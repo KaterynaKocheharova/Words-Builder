@@ -16,9 +16,9 @@ const NavBar = () => {
       <Container>
         <div className={css.flex}>
           <Logo />
-          {isLoggedIn && isLargeScreen && (
+          {isLoggedIn && (
             <>
-              <NavLinks />
+              {isLargeScreen && <NavLinks />}
               <UserMenu />
             </>
           )}
