@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { useScreenSizes } from "../../../hooks/useScreenSizes";
 import clsx from "clsx";
 import css from "./Navlinks.module.css";
 
@@ -16,28 +15,13 @@ const navlinksData: NavLinksData = [
 
 type BuildClassFunction = {
   isActive: boolean;
-  isLargeScreen: boolean;
-  isMediumScreen: boolean;
-  isSmallScreen: boolean;
 };
 
-export const buildActiveClass = ({
-  isActive,
-  isLargeScreen,
-  isMediumScreen,
-  isSmallScreen,
-}: BuildClassFunction) => {
-  return clsx(
-    css.link,
-    (isMediumScreen || isSmallScreen) && css["menu-link"],
-    isLargeScreen && css["desktop-link"],
-    isActive && isLargeScreen && css["desktop-active-link"],
-    isActive && (isSmallScreen || isMediumScreen) && css["menu-active-link"]
-  );
+export const buildActiveClass = ({ isActive }: BuildClassFunction) => {
+  return clsx(css.link, isActive && css["active-link"]);
 };
 
 const NavLinks = () => {
-  const { isLargeScreen, isMediumScreen, isSmallScreen } = useScreenSizes();
 
   return (
     <nav>
@@ -49,9 +33,6 @@ const NavLinks = () => {
                 className={({ isActive }) =>
                   buildActiveClass({
                     isActive,
-                    isLargeScreen,
-                    isMediumScreen,
-                    isSmallScreen,
                   })
                 }
                 to={item.to}

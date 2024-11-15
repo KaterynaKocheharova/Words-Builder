@@ -19,23 +19,24 @@
   padding: 12px 20px;
   border-radius: 15px;
   transition: color 250ms linear, background-color 200ms ease-in-out;
-}
-
-.menu-link {
   background-color: transparent;
   color: var(--white);
 }
 
-.desktop-link {
-  color: var(--main-font-color);
+@media screen and (min-width: 1440px) {
+  .link {
+    color: var(--main-font-color);
+  }
 }
 
-.menu-active-link {
+.active-link {
   background-color: var(--white);
   color: var(--main-font-color);
 }
 
-.desktop-active-link {
-  background-color: var(--primary-color);
-  color: var(--white);
+@media screen and (min-width: 1440px) {
+  .active-link {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
 }
