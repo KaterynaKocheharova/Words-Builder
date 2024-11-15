@@ -9,8 +9,8 @@ type UserNavData = {
 
 const navlinksData: UserNavData = [
   { label: "Dictionary", to: "/dictionary" },
-  { label: "Training", to: "/training" },
   { label: "Recommend", to: "/recommend" },
+  { label: "Training", to: "/training" },
 ];
 
 type UserNavProps = {
