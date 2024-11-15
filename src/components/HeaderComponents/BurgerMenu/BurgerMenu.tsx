@@ -1,6 +1,7 @@
 import { Menu, MenuButton, MenuItems } from "@headlessui/react";
 import Avatar from "../Avatar/Avatar";
 import UserNav from "../UserNav/UserNav";
+import LogoutButton from "../LogoutButton/LogoutButton";
 import css from "./BurgerMenu.module.css";
 
 const BurgerMenu = () => {
@@ -59,6 +60,7 @@ const BurgerMenu = () => {
               </button>
             </div>
             <UserNav />
+            <LogoutButton />
           </MenuItems>
         </>
       )}
