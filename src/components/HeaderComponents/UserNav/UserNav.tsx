@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import css from "./Navlinks.module.css";
 
-type NavLinksData = {
+type UserNavData = {
   label: string;
   to: string;
 }[];
 
-const navlinksData: NavLinksData = [
+const navlinksData: UserNavData = [
   { label: "Dictionary", to: "/dictionary" },
   { label: "Training", to: "/training" },
   { label: "Recommend", to: "/recommend" },
@@ -21,8 +21,11 @@ export const buildActiveClass = ({ isActive }: BuildClassFunction) => {
   return clsx(css.link, isActive && css["active-link"]);
 };
 
-const NavLinks = () => {
+type UserNavProps = {
+  isMenuNav?: boolean;
+};
 
+const UserNav = ({ isMenuNav }: UserNavProps) => {
   return (
     <nav>
       <ul className={css["navlinks-list"]}>
@@ -47,4 +50,4 @@ const NavLinks = () => {
   );
 };
 
-export default NavLinks;
+export default UserNav;

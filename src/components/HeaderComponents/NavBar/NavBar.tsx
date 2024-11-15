@@ -3,7 +3,7 @@ import { useAppSelector } from "../../../redux/hooks";
 import { useScreenSizes } from "../../../hooks/useScreenSizes";
 import Container from "../../CommonComponents/Container/Container";
 import Logo from "../Logo/Logo";
-import NavLinks from "../NavLinks/NavLinks";
+import UserNav from "../UserNav/UserNav";
 import UserMenu from "../UserMenu/UserMenu";
 import css from "./NavBar.module.css";
 
@@ -18,7 +18,7 @@ const NavBar = () => {
           <Logo />
           {isLoggedIn && (
             <>
-              {isLargeScreen && <NavLinks />}
+              {isLargeScreen && <UserNav />}
               <UserMenu />
             </>
           )}
