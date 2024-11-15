@@ -7,8 +7,8 @@ const BurgerButton = () => {
     //     <use href="/sprite.svg#icon-burger"></use>
     //   </svg>
     // </button>
-    <button>
-      <svg viewBox="0 0 47 32" width="32" height="32">
+    <button className={css.button}>
+      <svg viewBox="0 0 47 32" width="32" height="32" className={css.icon}>
         <path
           stroke="black"
           fill="none"
