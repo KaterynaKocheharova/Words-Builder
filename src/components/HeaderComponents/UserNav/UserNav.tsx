@@ -1,6 +1,5 @@
-import { NavLink } from "react-router-dom";
-import clsx from "clsx";
-import css from "./Navlinks.module.css";
+import NavigationLink from "../NavigationLink/NavigationLink";
+import css from "./UserNav.module.css";
 
 type UserNavData = {
   label: string;
@@ -13,14 +12,6 @@ const navlinksData: UserNavData = [
   { label: "Recommend", to: "/recommend" },
 ];
 
-type BuildClassFunction = {
-  isActive: boolean;
-};
-
-export const buildActiveClass = ({ isActive }: BuildClassFunction) => {
-  return clsx(css.link, isActive && css["active-link"]);
-};
-
 type UserNavProps = {
   isMenuNav?: boolean;
 };
@@ -32,16 +23,7 @@ const UserNav = ({ isMenuNav }: UserNavProps) => {
         {navlinksData.map((item) => {
           return (
             <li>
-              <NavLink
-                className={({ isActive }) =>
-                  buildActiveClass({
-                    isActive,
-                  })
-                }
-                to={item.to}
-              >
-                {item.label}
-              </NavLink>
+              <NavigationLink linkData={item} />
             </li>
           );
         })}
