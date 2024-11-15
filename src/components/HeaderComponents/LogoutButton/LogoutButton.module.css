@@ -4,6 +4,7 @@
   gap: 6px;
   color: var(--white);
   stroke-width: 0;
+  fill: none;
   stroke: currentColor;
   font-size: 14px;
   font-weight: 500;
@@ -12,6 +13,5 @@
   @media screen and (min-width: 1440px) {
     font-size: 16px;
     color: var(--main-font-color);
-    stroke: currentColor;
   }
 }
