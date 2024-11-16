@@ -1,0 +1,7 @@
+.button {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  stroke: var(--primary-color);
+}

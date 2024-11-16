@@ -39,6 +39,7 @@ body {
   font-family: "MacPaw Fixel Display", sans-serif;
   background-color: var(--gray);
   color: var(--main-font-color);
+  line-height: 1.5;
 }
 
 h1,
