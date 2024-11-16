@@ -128,12 +128,26 @@ const AddWordForm = () => {
                 }),
                 menu: (baseStyles) => ({
                   ...baseStyles,
+                  position: "relative",
                   maxHeight: "240px",
                   backgroundColor: "#FFFFFF",
                   borderRadius: "15px",
                   padding: "12px 24px",
                   marginTop: "4px",
-                  overflow: "auto"
+                  overflow: "auto",
+                  "::-webkit-scrollbar": {
+                    position: "absolute",
+                    right: "6px",
+                    width: "8px",
+                    height: "42%",
+                  },
+                  "::-webkit-scrollbar-thumb": {
+                    background: "#F8F8F8",
+                    borderRadius: "12px",
+                  },
+                  "::-webkit-scrollbar-track": {
+                    background: "transparent",
+                  },
                 }),
                 menuList: (baseStyles) => ({
                   overflow: "hidden",
@@ -153,6 +167,7 @@ const AddWordForm = () => {
               }}
               classNames={{
                 option: () => css["custom-option"],
+                menu: () => css["custom-select-menu"],
               }}
             />
           )}
