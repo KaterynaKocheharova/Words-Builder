@@ -3,3 +3,21 @@
     width: 204px;
   }
 }
+.custom-option {
+  font-size: 16px; 
+  font-weight: 500;
+  line-height: 1.5; 
+  color: var(--primary-color); 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.custom-option:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.custom-option:last-child {
+  margin-bottom: 0;
+}

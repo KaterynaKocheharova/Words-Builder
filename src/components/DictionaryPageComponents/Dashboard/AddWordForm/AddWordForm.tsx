@@ -76,12 +76,30 @@ const AddWordForm = () => {
           control={control}
           render={({ field }) => (
             <Select
+              menuIsOpen={true}
               unstyled
               {...field}
               options={[
                 { value: "chocolate", label: "Chocolate" },
                 { value: "strawberry", label: "Strawberry" },
                 { value: "vanilla", label: "Vanilla" },
+                { value: "mint", label: "Mint" },
+                { value: "caramel", label: "Caramel" },
+                { value: "coffee", label: "Coffee" },
+                { value: "hazelnut", label: "Hazelnut" },
+                { value: "banana", label: "Banana" },
+                { value: "peach", label: "Peach" },
+                { value: "mango", label: "Mango" },
+                { value: "blueberry", label: "Blueberry" },
+                { value: "raspberry", label: "Raspberry" },
+                { value: "pistachio", label: "Pistachio" },
+                { value: "lemon", label: "Lemon" },
+                { value: "lime", label: "Lime" },
+                { value: "coconut", label: "Coconut" },
+                { value: "cherry", label: "Cherry" },
+                { value: "watermelon", label: "Watermelon" },
+                { value: "grape", label: "Grape" },
+                { value: "apple", label: "Apple" },
               ]}
               // container 32% starting from 768
               styles={{
@@ -110,25 +128,31 @@ const AddWordForm = () => {
                 }),
                 menu: (baseStyles) => ({
                   ...baseStyles,
+                  maxHeight: "240px",
                   backgroundColor: "#FFFFFF",
-                  borderRadius: "14px",
-                  padding: "14px 18px",
+                  borderRadius: "15px",
+                  padding: "12px 24px",
                   marginTop: "4px",
-                  display: "flex",
-                  flexDirection: "column",
-                  columnGap: "8px",
+                  overflow: "auto"
+                }),
+                menuList: (baseStyles) => ({
+                  overflow: "hidden",
                 }),
                 option: (baseStyles, state) => ({
-                  fontSize: "18px",
-                  fontWeight: "500",
-                  lineHeight: "1.1",
-                  color: state.isSelected ? "#121417" : "#12141733",
-                  marginBottom: "8px",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  cursor: "pointer",
+                  //   fontSize: "16px",
+                  //   fontWeight: "500",
+                  //   lineHeight: "1.5",
+                  color: state.isSelected
+                    ? "var(--primary-color)"
+                    : "#12141780",
+                  //   whiteSpace: "nowrap",
+                  //   overflow: "hidden",
+                  //   textOverflow: "ellipsis",
+                  //   cursor: "pointer",
                 }),
+              }}
+              classNames={{
+                option: () => css["custom-option"],
               }}
             />
           )}
