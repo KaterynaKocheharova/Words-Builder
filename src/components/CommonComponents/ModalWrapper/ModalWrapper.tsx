@@ -2,7 +2,7 @@ import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import clsx from "clsx";
 import css from "./ModalWrapper.module.css";
 
-type ModalWrapperProps = {
+export type ModalWrapperProps = {
   extraClass: string;
   isOpen: boolean;
   close: () => void;

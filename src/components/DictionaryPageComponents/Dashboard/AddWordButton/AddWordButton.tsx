@@ -1,5 +1,5 @@
 import { useOpen } from "../../../../hooks/useOpen";
-import ModalWrapper from "../../../CommonComponents/ModalWrapper/ModalWrapper";
+import AddWordModal from "../AddWordModal/AddWordModal";
 import css from "./AddWordButton.module.css";
 
 const AddWordButton = () => {
@@ -13,9 +13,7 @@ const AddWordButton = () => {
           <use href="/sprite.svg#icon-plus"></use>
         </svg>
       </button>
-      <ModalWrapper extraClass="add-word-modal" isOpen={isOpen} close={close}>
-        <p>Add word modal</p>
-      </ModalWrapper>
+      <AddWordModal extraClass="add-word-modal" isOpen={isOpen} close={close} />
     </>
   );
 };
