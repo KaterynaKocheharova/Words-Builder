@@ -14,6 +14,7 @@ const AddWordModal = ({ extraClass, isOpen, close }: AddWordModalProps) => {
         Adding a new word to the dictionary is an important step in enriching
         the language base and expanding the vocabulary.
       </Description>
+      {/* will be form */}
     </ModalWrapper>
   );
 };
