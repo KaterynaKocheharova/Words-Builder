@@ -1,5 +1,6 @@
 import ModalWrapper from "../../../CommonComponents/ModalWrapper/ModalWrapper";
 import ModalTitle from "../../../CommonComponents/ModalTitle/ModalTitle";
+import AddWordForm from "../AddWordForm/AddWordForm";
 import { Description } from "@headlessui/react";
 import { type ModalWrapperProps } from "../../../CommonComponents/ModalWrapper/ModalWrapper";
 import css from "./AddWordModal.module.css";
@@ -14,7 +15,7 @@ const AddWordModal = ({ extraClass, isOpen, close }: AddWordModalProps) => {
         Adding a new word to the dictionary is an important step in enriching
         the language base and expanding the vocabulary.
       </Description>
-      {/* will be form */}
+      <AddWordForm />
     </ModalWrapper>
   );
 };
