@@ -3,23 +3,22 @@ import css from "./VerbTypeRadio.module.css";
 
 const VerbTypeRadio = () => {
   return (
-    <RadioGroup aria-label="Verb type">
-      <Field>
-        <Radio value="isIrregular">
+    <RadioGroup className={css["group-flex"]} aria-label="Verb type">
+      <Field className={css["field-flex"]}>
+        <Radio className={css.outer} value="isRegular">
           {({ checked }) => {
-            console.log(checked);
-            if (checked) {
-              return (
-                <div className={css.outer}>
-                  <div className={css.center}></div>
-                </div>
-              );
-            } else {
-              return <div className={css.initial}></div>;
-            }
+            return checked ? <div className={css.center}></div> : <div></div>;
           }}
         </Radio>
-        <Label>Is Irregular</Label>
+        <Label className={css.label}>Is Irregular</Label>
+      </Field>
+      <Field className={css["field-flex"]}>
+        <Radio className={css.outer} value="isIrregular">
+          {({ checked }) => {
+            return checked ? <div className={css.center}></div> : <div></div>;
+          }}
+        </Radio>
+        <Label className={css.label}>Irregular</Label>
       </Field>
     </RadioGroup>
   );

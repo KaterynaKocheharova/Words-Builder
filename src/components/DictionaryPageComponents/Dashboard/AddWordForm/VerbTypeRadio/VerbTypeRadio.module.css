@@ -1,3 +1,20 @@
+.group-flex {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 38px;
+  }
+}
+
+.field-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .outer,
 .initial {
   display: flex;
@@ -5,14 +22,27 @@
   align-items: center;
   width: 18px;
   height: 18px;
-  border-radius: 10px;
+  border-radius: 50%;
   border: 2px solid var(--white);
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .center {
   width: 100%;
   height: 100%;
-  border-radius: 60px;
+  border-radius: 50%;
   border: 2px solid var(--primary-color);
   background-color: var(--white);
+}
+
+.label {
+  font-size: 12px;
+  line-height: 1.33px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 }
