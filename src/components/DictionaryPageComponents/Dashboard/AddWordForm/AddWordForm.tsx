@@ -101,10 +101,8 @@ const AddWordForm = () => {
                 { value: "grape", label: "Grape" },
                 { value: "apple", label: "Apple" },
               ]}
-              // container 32% starting from 768
               styles={{
                 control: (baseStyles) => ({
-                  position: "relative",
                   backgroundColor: "transparent",
                   border: "1px solid #FCFCFC4D",
                   borderRadius: "15px",
@@ -128,18 +126,20 @@ const AddWordForm = () => {
                 }),
                 menu: (baseStyles) => ({
                   ...baseStyles,
-                  position: "relative",
-                  maxHeight: "240px",
+                  maxHeight: "240x",
                   backgroundColor: "#FFFFFF",
                   borderRadius: "15px",
-                  padding: "12px 24px",
+                  padding: "12px 6px 12px 24px",
                   marginTop: "4px",
-                  overflow: "auto",
+                  boxSizing: "border-box",
+                }),
+                menuList: (baseStyles) => ({
+                  maxHeight: "216px",
+                  overflowY: "auto",
                   "::-webkit-scrollbar": {
-                    position: "absolute",
-                    right: "6px",
                     width: "8px",
                     height: "42%",
+                    cursor: "pointer",
                   },
                   "::-webkit-scrollbar-thumb": {
                     background: "#F8F8F8",
@@ -149,20 +149,14 @@ const AddWordForm = () => {
                     background: "transparent",
                   },
                 }),
-                menuList: (baseStyles) => ({
-                  overflow: "hidden",
-                }),
                 option: (baseStyles, state) => ({
-                  //   fontSize: "16px",
-                  //   fontWeight: "500",
-                  //   lineHeight: "1.5",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: 1.5,
                   color: state.isSelected
                     ? "var(--primary-color)"
                     : "#12141780",
-                  //   whiteSpace: "nowrap",
-                  //   overflow: "hidden",
-                  //   textOverflow: "ellipsis",
-                  //   cursor: "pointer",
+                  cursor: "pointer",
                 }),
               }}
               classNames={{
