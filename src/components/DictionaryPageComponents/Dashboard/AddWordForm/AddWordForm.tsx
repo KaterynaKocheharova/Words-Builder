@@ -1,7 +1,5 @@
-import Select, { components, DropdownIndicatorProps } from "react-select";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { type Option } from "../../../CommonComponents/CategoriesSelect/CategoriesSelect";
 import CategoriesSelect from "../../../CommonComponents/CategoriesSelect/CategoriesSelect";
 import * as yup from "yup";
 import css from "./AddWord.module.css";
