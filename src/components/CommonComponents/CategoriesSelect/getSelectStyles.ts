@@ -7,7 +7,6 @@ export const getSelectStyles: GetSelectStyles = (location) => {
   return {
     container: (baseStyles) => ({
       position: "relative",
-      marginBottom: location === "form" ? "8px" : undefined,
     }),
     control: (baseStyles) => ({
       backgroundColor: "transparent",

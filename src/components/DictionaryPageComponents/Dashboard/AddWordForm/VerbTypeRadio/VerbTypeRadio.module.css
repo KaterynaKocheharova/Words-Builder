@@ -1,0 +1,17 @@
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  border: 2px solid var(--white);
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--white);
+}

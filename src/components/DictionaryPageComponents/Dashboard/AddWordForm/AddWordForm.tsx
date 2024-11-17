@@ -8,6 +8,7 @@ import * as yup from "yup";
 import Relative from "../../../CommonComponents/Relative/Relative";
 import InputError from "../../../CommonComponents/InputError/InputError";
 import css from "./AddWord.module.css";
+import VerbTypeRadio from "./VerbTypeRadio/VerbTypeRadio";
 
 export type AddWordFormValues = {
   category: Option;
@@ -49,8 +50,8 @@ const AddWordForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Relative>
-        <div className={css["select-wrapper"]}>
+      <div className={css["select-wrapper"]}>
+        <Relative>
           <Controller
             name="category"
             control={control}
@@ -62,16 +63,16 @@ const AddWordForm = () => {
               />
             )}
           />
-        </div>
-        <InputError
-          errorMessage={
-            errors?.category?.value?.message || errors?.category?.label?.message
-          }
-        />
-      </Relative>
 
-      <p></p>
-
+          <InputError
+            errorMessage={
+              errors?.category?.value?.message ||
+              errors?.category?.label?.message
+            }
+          />
+        </Relative>
+      </div>
+      <VerbTypeRadio />
       <button type="submit">Submit</button>
     </form>
   );

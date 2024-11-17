@@ -1,5 +1,6 @@
 .error-text {
   position: absolute;
+  align-items: center;
   bottom: -18px;
   left: 0;
   display: flex;
