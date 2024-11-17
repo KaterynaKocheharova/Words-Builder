@@ -1,54 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { refreshUser, type AuthResponse } from "./operations";
-import { registerUser, loginUser, logoutUser } from "./operations";
+import { getWordsCategories } from "./operations";
+import { type Option } from "../../components/CommonComponents/CategoriesSelect/CategoriesSelect";
 import { type BaseSliceState } from "../types";
+import { handleError } from "../auth/slice";
 
-type AuthState = {
-  user: {
-    name: string;
-    email: string;
-  };
-  token: string;
-  isLoggedIn: boolean;
-  isLoading: string;
-  error: string | undefined;
-};
+type CategoriesState = {
+  categories: Option[];
+} & BaseSliceState;
 
-type UserDataPayload = AuthResponse;
+type WordsDataPayload = Option[];
 
-const initialState: AuthState = {
-  user: {
-    name: "",
-    email: "",
-  },
-  token: "",
-  isLoggedIn: false,
-  isLoading: "",
+const initialState: CategoriesState = {
+  categories: [],
+  isLoading: false,
   error: "",
 };
 
-export const handleError = <S extends BaseSliceState>(
-  state: S,
-  action: PayloadAction<string | undefined>
-): void => {
-  state.isLoading = "";
-  state.error = action.payload;
-};
-
-const handleGetUserInfo = (
-  state: AuthState,
-  action: PayloadAction<UserDataPayload>
-) => {
-  const { name, email, token } = action.payload;
-  state.isLoggedIn = true;
-  state.isLoading = "";
-  state.error = "";
-  state.user.name = name;
-  state.user.email = email;
-  state.token = token;
-};
-
-const auth = createSlice({
+const word = createSlice({
   name: "auth",
   initialState,
   reducers: {},
