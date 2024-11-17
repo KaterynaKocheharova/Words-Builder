@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setAuthHeader } from "../auth/operations";
 export type CategoriesResponse = string[];
 
 
@@ -8,16 +7,7 @@ export const getWordsCategories = createAsyncThunk<
   CategoriesResponse,
   void,
   { rejectValue: string }
->("auth/getCategories", async (_, thunkAPI) => {
-  const state = thunkAPI.getState();
-  const persistedToken = state.auth.token; 
-
-  if (!persistedToken) {
-    return thunkAPI.rejectWithValue("No token available");
-  }
-
-  setAuthHeader(persistedToken); 
-
+>("wordsCategories/getCategories", async (_, thunkAPI) => {  
   try {
     const { data } = await axios.get<CategoriesResponse>("/words/categories");
     console.log(data);
