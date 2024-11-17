@@ -5,6 +5,9 @@ type GetSelectStyles = (location: string) => StylesConfig<Option>;
 
 export const getSelectStyles: GetSelectStyles = (location) => {
   return {
+    container: (baseStyles) => ({
+      marginBottom: location === "form" ? "8px" : undefined,
+    }),
     control: (baseStyles) => ({
       backgroundColor: "transparent",
       border: "1px solid #FCFCFC4D",
