@@ -1,24 +1,34 @@
 import { Field, Label, Radio, RadioGroup } from "@headlessui/react";
 import css from "./VerbTypeRadio.module.css";
 
-const VerbTypeRadio = () => {
+type VerbTypeRadioProps = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+const VerbTypeRadio = ({ value, onChange }: VerbTypeRadioProps) => {
   return (
-    <RadioGroup className={css["group-flex"]} aria-label="Verb type">
+    <RadioGroup
+      className={css["group-flex"]}
+      aria-label="Verb type"
+      value={value}
+      onChange={onChange}
+    >
       <Field className={css["field-flex"]}>
         <Radio className={css.outer} value="isRegular">
-          {({ checked }) => {
-            return checked ? <div className={css.center}></div> : <div></div>;
-          }}
+          {({ checked }) => (
+            <div className={checked ? css.center : undefined}></div>
+          )}
         </Radio>
-        <Label className={css.label}>Is Irregular</Label>
+        <Label className={css.label}>Is Regular</Label>
       </Field>
       <Field className={css["field-flex"]}>
         <Radio className={css.outer} value="isIrregular">
-          {({ checked }) => {
-            return checked ? <div className={css.center}></div> : <div></div>;
-          }}
+          {({ checked }) => (
+            <div className={checked ? css.center : undefined}></div>
+          )}
         </Radio>
-        <Label className={css.label}>Irregular</Label>
+        <Label className={css.label}>Is Irregular</Label>
       </Field>
     </RadioGroup>
   );
