@@ -7,7 +7,10 @@ type PrivateRouteProps = {
   redirectTo: string;
 };
 
-const PrivateRoute = ({ component: Component, redirectTo }: PrivateRouteProps) => {
+const PrivateRoute = ({
+  component: Component,
+  redirectTo,
+}: PrivateRouteProps) => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   return isLoggedIn ? Component : <Navigate to={redirectTo} />;
 };
