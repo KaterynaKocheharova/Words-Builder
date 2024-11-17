@@ -8,7 +8,7 @@ type CategoriesState = {
   categories: Option[];
 } & BaseSliceState;
 
-type WordsDataPayload = Option[];
+type WordsCategoriesPayload = Option[];
 
 const initialState: CategoriesState = {
   categories: [],
@@ -16,40 +16,25 @@ const initialState: CategoriesState = {
   error: "",
 };
 
-const word = createSlice({
-  name: "auth",
+const wordsCategoriesSlice = createSlice({
+  name: "wordsCategories",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.pending, (state) => {
-        state.isLoading = "Registering. Please, wait";
+      .addCase(getWordsCategories.pending, (state) => {
+        state.isLoading = "getting-categories";
       })
-      .addCase(registerUser.fulfilled, handleGetUserInfo)
-      .addCase(registerUser.rejected, handleError)
-      .addCase(refreshUser.pending, (state) => {
-        state.isLoading = "Refreshing your data. Please, wait";
-      })
-      .addCase(refreshUser.fulfilled, handleGetUserInfo)
-      .addCase(refreshUser.rejected, handleError)
-      .addCase(loginUser.pending, (state) => {
-        state.isLoading = "Registering.Please, wait";
-      })
-      .addCase(loginUser.fulfilled, handleGetUserInfo)
-      .addCase(loginUser.rejected, handleError)
-      .addCase(logoutUser.pending, (state) => {
-        state.isLoading = "Loginin out. Please, wait";
-      })
-      .addCase(logoutUser.fulfilled, (state) => {
-        state.isLoggedIn = false;
-        state.isLoading = "";
-        state.error = "";
-        state.user.name = "";
-        state.user.email = "";
-        state.token = "";
-      })
-      .addCase(logoutUser.rejected, handleError);
+      .addCase(
+        getWordsCategories.fulfilled,
+        (state, action: PayloadAction<WordsCategoriesPayload>) => {
+          state.categories = action.payload;
+          state.isLoading = false;
+          state.error = "";
+        }
+      )
+      .addCase(getWordsCategories.rejected, handleError);
   },
 });
 
-export const authReducer = auth.reducer;
+export const wordsCategoriesReducer = wordsCategoriesSlice.reducer;
