@@ -2,15 +2,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 export type CategoriesResponse = string[];
 
-
 export const getWordsCategories = createAsyncThunk<
   CategoriesResponse,
   void,
   { rejectValue: string }
->("wordsCategories/getCategories", async (_, thunkAPI) => {  
+>("wordsCategories/getCategories", async (_, thunkAPI) => {
   try {
     const { data } = await axios.get<CategoriesResponse>("/words/categories");
-    console.log(data);
     return data;
   } catch (error) {
     if (error instanceof Error) {

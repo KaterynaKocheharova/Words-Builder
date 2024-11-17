@@ -1,14 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getWordsCategories } from "./operations";
-import { type Option } from "../../components/CommonComponents/CategoriesSelect/CategoriesSelect";
 import { type BaseSliceState } from "../types";
 import { handleError } from "../auth/slice";
 
 type CategoriesState = {
-  categories: Option[];
+  categories: string[];
 } & BaseSliceState;
 
-type WordsCategoriesPayload = Option[];
+export type WordsCategoriesPayload = string[];
 
 const initialState: CategoriesState = {
   categories: [],
