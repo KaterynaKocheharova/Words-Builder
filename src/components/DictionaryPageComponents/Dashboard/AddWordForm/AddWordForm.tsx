@@ -131,7 +131,7 @@ const AddWordForm = () => {
             <CategoriesSelect
               location="form"
               {...field}
-              ref={categorySelectRef} // Attach the ref for focusing
+              ref={categorySelectRef}
             />
           )}
         />
