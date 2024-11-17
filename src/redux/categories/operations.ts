@@ -1,16 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 import axios from "axios";
-
-axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api";
-
+import { setAuthHeader } from "../auth/operations";
 export type CategoriesResponse = string[];
+
 
 export const getWordsCategories = createAsyncThunk<
   CategoriesResponse,
   void,
   { rejectValue: string }
->("auth/register", async (_, thunkAPI) => {
+>("auth/getCategories", async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const persistedToken = state.auth.token; 
+
+  if (!persistedToken) {
+    return thunkAPI.rejectWithValue("No token available");
+  }
+
+  setAuthHeader(persistedToken); 
+
   try {
     const { data } = await axios.get<CategoriesResponse>("/words/categories");
     console.log(data);

@@ -28,11 +28,11 @@ export type RefreshUserResponse = AuthResponse & { _id: string };
 
 axios.defaults.baseURL = "https://vocab-builder-backend.p.goit.global/api";
 
-const setAuthHeader = (token: string): void => {
+export const setAuthHeader = (token: string): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const clearAuthHeader = () => {
+export const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = "";
 };
 
