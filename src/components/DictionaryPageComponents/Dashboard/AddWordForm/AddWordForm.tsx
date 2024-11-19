@@ -52,7 +52,11 @@ const addWordFormSchema = yup.object({
     .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u, "Should be Ukrainian"),
 });
 
-const AddWordForm = () => {
+type AddWordForm = {
+  close: () => void;
+};
+
+const AddWordForm = ({ close }: AddWordForm) => {
   const {
     handleSubmit,
     formState: { errors },
@@ -146,7 +150,9 @@ const AddWordForm = () => {
       </div>
       <SpaceBetween extraClass="modal-buttons">
         <Button extraClass="modal-confirmation-button">Add</Button>
-        <Button extraClass="modal-cancel-button">Cancel</Button>
+        <Button extraClass="modal-cancel-button" onClick={close}>
+          Cancel
+        </Button>
       </SpaceBetween>
     </form>
   );
