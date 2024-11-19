@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import clsx from "clsx";
 import css from "./ModalWrapper.module.css";
@@ -15,6 +16,18 @@ const ModalWrapper = ({
   close,
   children,
 }: ModalWrapperProps) => {
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        close();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [close]);
+
   return (
     <Dialog open={isOpen} onClose={close}>
       <DialogBackdrop className={css.backdrop}>
