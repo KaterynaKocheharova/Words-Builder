@@ -66,41 +66,51 @@ const AddWordForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={css["select-wrapper"]}>
-        <Relative>
-          <Controller
-            name="category"
-            control={control}
-            render={({ field }) => (
-              <CategoriesSelect
-                location="form"
-                {...field}
-                ref={categorySelectRef}
-              />
-            )}
-          />
-          <InputError
-            errorMessage={
-              errors?.category?.value?.message ||
-              errors?.category?.label?.message
-            }
-          />
-        </Relative>
+      <div className={css["category-wrapper"]}>
+        <div className={css["select-wrapper"]}>
+          <Relative>
+            <Controller
+              name="category"
+              control={control}
+              render={({ field }) => (
+                <CategoriesSelect
+                  location="form"
+                  {...field}
+                  ref={categorySelectRef}
+                />
+              )}
+            />
+            <InputError
+              errorMessage={
+                errors?.category?.value?.message ||
+                errors?.category?.label?.message
+              }
+            />
+          </Relative>
+        </div>
+        <div className={css["verb-type-container"]}>
+          {categoryValue === "verb" && (
+            <>
+              <Relative>
+                <Controller
+                  name="verbType"
+                  control={control}
+                  render={({ field }) => (
+                    <VerbTypeRadio
+                      value={field.value}
+                      onChange={field.onChange}
+                    />
+                  )}
+                />
+                <InputError errorMessage={errors?.verbType?.message} />
+              </Relative>
+              <p className={css["verb-format-note"]}>
+                Such data must be entered in the format I form-II form-III form.
+              </p>
+            </>
+          )}
+        </div>
       </div>
-
-      <Relative>
-        {" "}
-        {categoryValue === "verb" && (
-          <Controller
-            name="verbType"
-            control={control}
-            render={({ field }) => (
-              <VerbTypeRadio value={field.value} onChange={field.onChange} />
-            )}
-          />
-        )}
-        <InputError errorMessage={errors?.verbType?.message} />
-      </Relative>
 
       <button type="submit">Submit</button>
     </form>

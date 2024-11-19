@@ -1,8 +1,30 @@
-.select-wrapper {
-  margin-bottom: 8px;
+.category-wrapper {
+  margin-bottom: 58px;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 70px;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .select-wrapper {
     width: 204px;
   }
+}
+
+.verb-type-container {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  
+}
+
+.verb-format-note {
+  font-size: 10px;
+  line-height: 1.2;
 }
