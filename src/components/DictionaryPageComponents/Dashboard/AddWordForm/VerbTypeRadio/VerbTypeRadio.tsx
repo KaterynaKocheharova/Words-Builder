@@ -2,7 +2,7 @@ import { Field, Label, Radio, RadioGroup } from "@headlessui/react";
 import css from "./VerbTypeRadio.module.css";
 
 type VerbTypeRadioProps = {
-  value: string;
+  value: string | undefined;
   onChange: (value: string) => void;
 };
 
