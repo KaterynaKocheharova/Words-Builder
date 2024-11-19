@@ -11,14 +11,18 @@ type WordInputProps = {
   label: string;
   register: UseFormRegister<AddWordFormValues>;
   name: "En" | "Ua";
+  iconId: string;
 } & InputErrorProps;
 
-const WordInput = ({ label, errorMessage, register, name }: WordInputProps) => {
+const WordInput = ({ label, errorMessage, register, name, iconId }: WordInputProps) => {
   const id = useId();
 
   return (
     <div className={css.container}>
       <label className={css.label} htmlFor={`${id}${label}`}>
+        <svg width="28" height="28" className={css["country-icon"]}>
+            <use href={`/sprite.svg#${iconId}`}></use>
+        </svg>
         {label}
       </label>
       <Relative>

@@ -3,13 +3,13 @@
   border-radius: 15px;
   line-height: 1.5;
   background-color: transparent;
-  transition: border-color 100ms linear;
-}
+  border: 1px solid transparent;
+  transition: border 100ms linear;
 
-
-
-.input:focus {
-  border-color: #85aa9f;
+  &:focus {
+    border-color: #85aa9f;
+    outline: none;
+  }
 }
 
 .auth-form-input {
@@ -25,6 +25,7 @@
 .word-form-input {
   padding: 12px 24px;
   border: 1px solid #d1d5db;
+  color: var(--white);
   @media screen and (min-width: 768px) {
     padding: 16px 18px;
   }
@@ -35,7 +36,8 @@
 }
 
 .word-form-input:focus {
-  border-color: var(--main-font-color);
+  border-color: #d1d5db;
+  color: var(--white);
 }
 
 .wrong-input {

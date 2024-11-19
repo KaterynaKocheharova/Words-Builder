@@ -41,12 +41,12 @@ const addWordFormSchema = yup.object({
     }),
   En: yup
     .string()
-    .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/)
-    .required("English word is required"),
+    .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/, "Should be English")
+    .required("Required"),
   Ua: yup
     .string()
-    .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u)
-    .required("Ukrainian word is required"),
+    .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u, "Should be Ukrainian")
+    .required("Required"),
 });
 
 const AddWordForm = () => {
@@ -125,18 +125,23 @@ const AddWordForm = () => {
           )}
         </div>
       </div>
-      <WordInput
-        label="Ukrainian"
-        errorMessage={errors?.En?.message}
-        name="En"
-        register={register}
-      />
-      <WordInput
-        label="English"
-        errorMessage={errors?.verbType?.message}
-        name="En"
-        register={register}
-      />
+      <div className={css["word-inputs-flex"]}>
+        <WordInput
+          label="Ukrainian"
+          errorMessage={errors?.Ua?.message}
+          name="Ua"
+          register={register}
+          iconId="icon-ukraine"
+        />
+        <WordInput
+          iconId="icon-united-kingdom"
+          label="English"
+          errorMessage={errors?.En?.message}
+          name="En"
+          register={register}
+        />
+      </div>
+
       <button type="submit">Submit</button>
     </form>
   );

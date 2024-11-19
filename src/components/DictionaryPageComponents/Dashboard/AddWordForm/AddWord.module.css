@@ -20,11 +20,15 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-
-  
 }
 
 .verb-format-note {
   font-size: 10px;
   line-height: 1.2;
+}
+
+.word-inputs-flex {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
 }
