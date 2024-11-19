@@ -41,12 +41,13 @@ const addWordFormSchema = yup.object({
     }),
   En: yup
     .string()
-    .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/, "Should be English")
-    .required("Required"),
+    .required("Required")
+
+    .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/, "Should be English"),
   Ua: yup
     .string()
-    .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u, "Should be Ukrainian")
-    .required("Required"),
+    .required("Required")
+    .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u, "Should be Ukrainian"),
 });
 
 const AddWordForm = () => {
