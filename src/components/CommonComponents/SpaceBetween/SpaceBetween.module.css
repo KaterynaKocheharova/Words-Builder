@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-buttons {
+  column-gap: 8px;
+  @media screen and (min-width: 768px) {
+    column-gap: 10px;
+  }
+}

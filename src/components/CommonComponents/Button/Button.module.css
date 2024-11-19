@@ -7,6 +7,7 @@
   padding-bottom: 16px;
   border-radius: 30px;
   transition: background-color 250ms linear;
+  line-height: 1.6;
 }
 
 .auth-button {
@@ -20,4 +21,31 @@
 
 .auth-button:hover {
   background-color: var(--primary-color-hover);
+}
+
+.modal-cancel-button,
+.modal-confirmation-button {
+  font-weight: 700;
+  padding-block: 12px;
+}
+
+.modal-confirmation-button {
+  color: var(--main-font-color);
+  background-color: var(--white);
+}
+
+.modal-confirmation-button:hover,
+.modal-confirmation-button:focus {
+  color: var(--primary-color);
+}
+
+.modal-cancel-button {
+  color: var(--white);
+  background-color: transparent;
+  border: 1px solid var(--white);
+}
+
+.modal-cancel-button:hover, .modal-cancel-button:focus {
+  color: var(--main-font-color);
+  background-color: var(--white);
 }

@@ -10,6 +10,8 @@ import InputError from "../../../CommonComponents/InputError/InputError";
 import css from "./AddWord.module.css";
 import VerbTypeRadio from "./VerbTypeRadio/VerbTypeRadio";
 import WordInput from "../WordInput/WordInput";
+import Button from "../../../CommonComponents/Button/Button";
+import SpaceBetween from "../../../CommonComponents/SpaceBetween/SpaceBetween";
 
 export type AddWordFormValues = {
   category: Option;
@@ -142,8 +144,10 @@ const AddWordForm = () => {
           register={register}
         />
       </div>
-
-      <button type="submit">Submit</button>
+      <SpaceBetween extraClass="modal-buttons">
+        <Button extraClass="modal-confirmation-button">Add</Button>
+        <Button extraClass="modal-cancel-button">Cancel</Button>
+      </SpaceBetween>
     </form>
   );
 };
