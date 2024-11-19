@@ -9,15 +9,20 @@ import Relative from "../../../CommonComponents/Relative/Relative";
 import InputError from "../../../CommonComponents/InputError/InputError";
 import css from "./AddWord.module.css";
 import VerbTypeRadio from "./VerbTypeRadio/VerbTypeRadio";
+import WordInput from "../WordInput/WordInput";
 
 export type AddWordFormValues = {
   category: Option;
   verbType?: "isRegular" | "isIrregular";
+  En: string;
+  Ua: string;
 };
 
 const defaultValues: AddWordFormValues = {
   category: { label: "", value: "" },
   verbType: "isRegular",
+  En: "",
+  Ua: "",
 };
 
 const addWordFormSchema = yup.object({
@@ -34,6 +39,14 @@ const addWordFormSchema = yup.object({
       is: "verb",
       then: (schema) => schema.required("Verb type is required"),
     }),
+  En: yup
+    .string()
+    .matches(/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/)
+    .required("English word is required"),
+  Ua: yup
+    .string()
+    .matches(/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u)
+    .required("Ukrainian word is required"),
 });
 
 const AddWordForm = () => {
@@ -41,6 +54,7 @@ const AddWordForm = () => {
     handleSubmit,
     formState: { errors },
     control,
+    register,
   } = useForm<AddWordFormValues>({
     defaultValues,
     shouldUnregister: true,
@@ -111,7 +125,18 @@ const AddWordForm = () => {
           )}
         </div>
       </div>
-
+      <WordInput
+        label="Ukrainian"
+        errorMessage={errors?.En?.message}
+        name="En"
+        register={register}
+      />
+      <WordInput
+        label="English"
+        errorMessage={errors?.verbType?.message}
+        name="En"
+        register={register}
+      />
       <button type="submit">Submit</button>
     </form>
   );

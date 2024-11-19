@@ -6,6 +6,8 @@
   transition: border-color 100ms linear;
 }
 
+
+
 .input:focus {
   border-color: #85aa9f;
 }
@@ -18,6 +20,22 @@
 
 .auth-form-input::placeholder {
   color: var(--main-font-color);
+}
+
+.word-form-input {
+  padding: 12px 24px;
+  border: 1px solid #d1d5db;
+  @media screen and (min-width: 768px) {
+    padding: 16px 18px;
+  }
+}
+
+.word-form-input::placeholder {
+  color: var(--white);
+}
+
+.word-form-input:focus {
+  border-color: var(--main-font-color);
 }
 
 .wrong-input {

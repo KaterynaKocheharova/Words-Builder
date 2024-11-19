@@ -1,6 +1,6 @@
 import css from "./InputError.module.css";
 
-type InputErrorProps = {
+export type InputErrorProps = {
   errorMessage: string | undefined;
 };
 
