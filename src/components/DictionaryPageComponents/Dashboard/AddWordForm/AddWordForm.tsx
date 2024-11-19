@@ -12,7 +12,7 @@ import VerbTypeRadio from "./VerbTypeRadio/VerbTypeRadio";
 
 export type AddWordFormValues = {
   category: Option;
-  verbType: string;
+  verbType?: "isRegular" | "isIrregular";
 };
 
 const defaultValues: AddWordFormValues = {
@@ -20,27 +20,21 @@ const defaultValues: AddWordFormValues = {
   verbType: "isRegular",
 };
 
-// const addWordFormSchema = yup.object({
-//   category: yup.object({
-//     label: yup.string().required("Category is required"),
-//     value: yup.string().required("Category is required"),
-//   }),
-//   verbType: yup.string().required("Verb type is required"),
-// });
 const addWordFormSchema = yup.object({
-  category: yup.object({
-    label: yup.string().required("Category is required"),
-    value: yup.string().required("Category is required"),
-  }).required("Category is required"), 
-  verbType: yup.string()
-  .when('category.value', {
-    is: "verb", 
-    then: (schema) => schema.required("Verb type is required"),
-  })
+  category: yup
+    .object({
+      label: yup.string().required("Category is required"),
+      value: yup.string().required("Category is required"),
+    })
+    .required("Category is required"),
+  verbType: yup
+    .string()
+    .oneOf(["isRegular", "isIrregular"])
+    .when("category.value", {
+      is: "verb",
+      then: (schema) => schema.required("Verb type is required"),
+    }),
 });
-
-
-
 
 const AddWordForm = () => {
   const {
