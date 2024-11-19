@@ -24,7 +24,9 @@ const Input = <T extends FieldValues>({
       className={clsx(
         css.input,
         extraClass && css[extraClass],
-        isWrong && css["wrong-input"]
+        isWrong && css["wrong-input"],
+        !isWrong && css.hovered,
+        !isWrong && css.focused
       )}
       {...props}
     />

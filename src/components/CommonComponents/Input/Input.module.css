@@ -5,12 +5,23 @@
   background-color: transparent;
   border: 1px solid transparent;
   transition: border 100ms linear;
-
-  &:focus {
-    border-color: #85aa9f;
-    outline: none;
-  }
 }
+
+.hovered:hover {
+  border-color: #85aa9f;
+}
+
+.focused:focus {
+  border-color: #85aa9f;
+}
+
+
+.word-form-input.hovered:focus,
+.word-form-input.focused:hover {
+  border-color: #d1d5db;
+  color: var(--white);
+}
+
 
 .auth-form-input {
   padding: 16px 18px 16px 18px;
@@ -32,11 +43,6 @@
 }
 
 .word-form-input::placeholder {
-  color: var(--white);
-}
-
-.word-form-input:focus {
-  border-color: #d1d5db;
   color: var(--white);
 }
 
