@@ -14,27 +14,35 @@ type WordInputProps = {
   iconId: string;
 } & InputErrorProps;
 
-const WordInput = ({ label, errorMessage, register, name, iconId }: WordInputProps) => {
+const WordInput = ({
+  label,
+  errorMessage,
+  register,
+  name,
+  iconId,
+}: WordInputProps) => {
   const id = useId();
 
   return (
     <div className={css.container}>
       <label className={css.label} htmlFor={`${id}${label}`}>
         <svg width="28" height="28" className={css["country-icon"]}>
-            <use href={`/sprite.svg#${iconId}`}></use>
+          <use href={`/sprite.svg#${iconId}`}></use>
         </svg>
         {label}
       </label>
-      <Relative>
-        <InputError errorMessage={errorMessage} />
-        <Input<AddWordFormValues>
-          placeholder="Enter a word"
-          extraClass="word-form-input"
-          register={register}
-          name={name}
-          isWrong={Boolean(errorMessage)}
-        />
-      </Relative>
+      <div className={css.input}>
+        <Relative>
+          <InputError errorMessage={errorMessage} />
+          <Input<AddWordFormValues>
+            placeholder="Enter a word"
+            extraClass="word-form-input"
+            register={register}
+            name={name}
+            isWrong={Boolean(errorMessage)}
+          />
+        </Relative>
+      </div>
     </div>
   );
 };
